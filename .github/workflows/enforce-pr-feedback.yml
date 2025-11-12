@@ -1,0 +1,92 @@
+name: Enforce PR Feedback
+
+on:
+  pull_request:
+    types: [opened, edited, reopened, synchronize, labeled]
+  issue_comment:
+    types: [created]
+  pull_request_review:
+    types: [submitted]
+
+jobs:
+  enforce-feedback:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      issues: write  # Needed to post PR comments
+
+    steps:
+      - name: Enforce at least one external reviewer or commenter
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const pr = context.payload.pull_request;
+            const prAuthor = pr.user.login;
+
+            const labels = pr.labels.map(l => l.name);
+            if (labels.includes("skip-comment-check")) {
+              console.log("🟡 Skipping check due to label: skip-comment-check");
+              return;
+            }
+
+            const [comments, reviews] = await Promise.all([
+              github.paginate(github.rest.issues.listComments, {
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: pr.number,
+              }),
+              github.paginate(github.rest.pulls.listReviews, {
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                pull_number: pr.number,
+              }),
+            ]);
+
+            const humans = new Set();
+
+            for (const comment of comments) {
+              if (
+                comment.user.login !== prAuthor &&
+                !comment.user.type.toLowerCase().includes("bot")
+              ) {
+                humans.add(comment.user.login);
+              }
+            }
+
+            for (const review of reviews) {
+              if (
+                review.user.login !== prAuthor &&
+                !review.user.type.toLowerCase().includes("bot")
+              ) {
+                humans.add(review.user.login);
+              }
+            }
+
+            console.log(`👥 External humans who commented or reviewed: ${[...humans]}`);
+
+            if (humans.size >= 1) {
+              console.log("✅ Check passed: At least one external human interacted.");
+            } else {
+              const body = `
+              ❌ **PR Feedback Requirement Not Met**
+
+              This PR must have at least **one comment or review** from someone _other than the PR author_.
+
+              Please request a teammate to:
+              - 💬 Leave a comment **or**
+              - ✅ Submit a review
+
+              Once someone responds, this check will pass automatically.  
+              _(Label \`skip-comment-check\` can be added to bypass this check if needed.)_
+              `;
+
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: pr.number,
+                body: body.trim(),
+              });
+
+              core.setFailed("❌ PR requires external human interaction (comment or review).");
+            }
