@@ -1,0 +1,56 @@
+name: Enforce Branch Naming Convention
+
+on:
+  create:
+    branches: ['**']
+  push:
+    branches: ['**']
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  check-branch-name:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate branch name
+        run: |
+          if [[ "$GITHUB_EVENT_NAME" == "pull_request" ]]; then
+            BRANCH_NAME="$GITHUB_HEAD_REF"
+          else
+            BRANCH_NAME="${GITHUB_REF#refs/heads/}"
+          fi
+
+          echo "🔎 Checking branch name: $BRANCH_NAME"
+
+          # ✅ Allow protected branches like 'main'
+          if [[ "$BRANCH_NAME" == "main" ]]; then
+            echo "✅ '$BRANCH_NAME' is a protected/system branch — skipping naming check."
+            exit 0
+          fi
+
+          # ❌ Explicitly block disallowed names
+          if [[ "$BRANCH_NAME" =~ ^(main|master|dev|develop|development)(/|$) ]]; then
+            echo "❌ Branch names starting with 'main', 'master', 'dev', 'develop' are not allowed."
+            exit 1
+          fi
+
+          # ✅ Allow 'version/*' and 'release/*' without strict Jira format
+          if [[ "$BRANCH_NAME" =~ ^(version|release)/.+$ ]]; then
+            echo "✅ '$BRANCH_NAME' is a version or release branch — format check relaxed."
+            exit 0
+          fi
+
+          # ✅ Enforce strict naming for feature, bugfix, hotfix
+          if [[ "$BRANCH_NAME" =~ ^(feature|bugfix|hotfix)/[A-Z]+-[0-9]+(-[a-zA-Z0-9._-]+)?$ ]]; then
+            echo "✅ Branch name is valid."
+            exit 0
+          else
+            echo "❌ Invalid branch name: '$BRANCH_NAME'"
+            echo "Allowed formats:"
+            echo "- feature/ABC-123-description"
+            echo "- bugfix/ABC-123-description"
+            echo "- hotfix/ABC-123-description"
+            echo "- release/* (free format)"
+            echo "- version/* (free format)"
+            exit 1
+          fi
