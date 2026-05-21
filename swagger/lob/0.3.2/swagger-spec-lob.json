@@ -2593,10 +2593,15 @@
             "type": "string",
             "description": "External IdP-issued JWT (access token or ID token) to validate against the LOB's registered idpConfig. The validator runs the full pipeline: alg → JWKS fetch → signature → iss → aud → exp → sub.",
             "example": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6..."
+          },
+          "email": {
+            "type": "string",
+            "example": "testidp@gmail.com"
           }
         },
         "required": [
-          "token"
+          "token",
+          "email"
         ]
       },
       "VerifyIdpTokenResponseData": {
@@ -2873,6 +2878,11 @@
             "example": "did:sov:LjgpST2rjsoxYegQDRm7EL",
             "description": "The public Decentralized Identifier (DID) associated with the LOB."
           },
+          "lobId": {
+            "type": "string",
+            "example": "9ed7f510-5649-4b55-8170-c2bf958edecb",
+            "description": "The unique identifier of the LOB that the tenant has joined."
+          },
           "trustRegistryMembershipResponse": {
             "$ref": "#/components/schemas/TrustRegistryResponseFields"
           }
@@ -2880,6 +2890,7 @@
         "required": [
           "responseDetails",
           "publicDID",
+          "lobId",
           "trustRegistryMembershipResponse"
         ]
       },
@@ -3093,6 +3104,25 @@
           "state"
         ]
       },
+      "ApproveTenantRequestsResponse": {
+        "type": "object",
+        "properties": {
+          "publicDID": {
+            "type": "string",
+            "example": "did:sov:LjgpST2rjsoxYegQDRm7EL",
+            "description": "The public Decentralized Identifier (DID) associated with the LOB."
+          },
+          "lobId": {
+            "type": "string",
+            "example": "9ed7f510-5649-4b55-8170-c2bf958edecb",
+            "description": "The unique identifier of the LOB that the tenant has joined."
+          }
+        },
+        "required": [
+          "publicDID",
+          "lobId"
+        ]
+      },
       "ApproveTenantRequestsResponseDto": {
         "type": "object",
         "properties": {
@@ -3107,8 +3137,12 @@
             "description": "Human-readable message about the operation result"
           },
           "data": {
-            "type": "object",
-            "description": "The updated tenant request record"
+            "description": "The updated tenant request record",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ApproveTenantRequestsResponse"
+              }
+            ]
           }
         },
         "required": [
@@ -3797,6 +3831,10 @@
             "type": "string",
             "description": "Human-readable status message",
             "example": "LOB is operational and ready"
+          },
+          "publicDid": {
+            "type": "string",
+            "description": "Public DID of the LOB (only included when LOB status is READY)"
           }
         },
         "required": [
