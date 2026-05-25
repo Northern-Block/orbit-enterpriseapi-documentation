@@ -170,9 +170,9 @@
         ]
       }
     },
-    "/api/lob/{lob_id}/define-proof-request": {
+    "/api/v1/lob/{lob_id}/define-proof-request": {
       "post": {
-        "operationId": "ProofController_proofDefine",
+        "operationId": "ProofController_proofDefine_api/v1",
         "parameters": [
           {
             "name": "lob_id",
@@ -260,9 +260,9 @@
         ]
       }
     },
-    "/api/lob/{lob_id}/defined-proofs": {
+    "/api/v1/lob/{lob_id}/defined-proofs": {
       "get": {
-        "operationId": "ProofController_getDefineProofRequest",
+        "operationId": "ProofController_getDefineProofRequest_api/v1",
         "parameters": [
           {
             "name": "search",
@@ -367,9 +367,9 @@
         ]
       }
     },
-    "/api/lob/{lob_id}/proof/send-oob": {
+    "/api/v1/lob/{lob_id}/proof/send-oob": {
       "post": {
-        "operationId": "ProofController_sendOOBProofRequest",
+        "operationId": "ProofController_sendOOBProofRequest_api/v1",
         "parameters": [
           {
             "name": "lob_id",
@@ -466,9 +466,9 @@
         ]
       }
     },
-    "/api/lob/{lob_id}/proof/url": {
+    "/api/v1/lob/{lob_id}/proof/url": {
       "post": {
-        "operationId": "ProofController_sendQrProofRequest",
+        "operationId": "ProofController_sendQrProofRequest_api/v1",
         "parameters": [
           {
             "name": "lob_id",
@@ -565,9 +565,9 @@
         ]
       }
     },
-    "/api/lob/{lob_id}/proof/send-contact": {
+    "/api/v1/lob/{lob_id}/proof/send-contact": {
       "post": {
-        "operationId": "ProofController_sendProofRequest",
+        "operationId": "ProofController_sendProofRequest_api/v1",
         "parameters": [
           {
             "name": "lob_id",
@@ -655,9 +655,9 @@
         ]
       }
     },
-    "/api/lob/{lob_id}/proof-request/{cred_proof_id}": {
+    "/api/v1/lob/{lob_id}/proof-request/{cred_proof_id}": {
       "get": {
-        "operationId": "ProofController_presentProofRequestStatus",
+        "operationId": "ProofController_presentProofRequestStatus_api/v1",
         "parameters": [
           {
             "name": "cred_proof_id",
@@ -740,9 +740,9 @@
         ]
       }
     },
-    "/api/lob/{lob_id}/proof-requests": {
+    "/api/v1/lob/{lob_id}/proof-requests": {
       "get": {
-        "operationId": "ProofController_retrieveProofRequests",
+        "operationId": "ProofController_retrieveProofRequests_api/v1",
         "parameters": [
           {
             "name": "state",
@@ -868,9 +868,9 @@
         ]
       }
     },
-    "/api/lob/{lob_id}/proof-request": {
+    "/api/v1/lob/{lob_id}/proof-request": {
       "delete": {
-        "operationId": "ProofController_deleteProofRequest",
+        "operationId": "ProofController_deleteProofRequest_api/v1",
         "parameters": [
           {
             "name": "lob_id",
@@ -958,9 +958,9 @@
         ]
       }
     },
-    "/api/lob/{lob_id}/proof/verify": {
+    "/api/v1/lob/{lob_id}/proof/verify": {
       "post": {
-        "operationId": "ProofController_verifyProofRequest",
+        "operationId": "ProofController_verifyProofRequest_api/v1",
         "parameters": [
           {
             "name": "lob_id",
@@ -1048,9 +1048,9 @@
         ]
       }
     },
-    "/api/lob/{lob_id}/proof-request/url": {
+    "/api/v1/lob/{lob_id}/proof-request/url": {
       "post": {
-        "operationId": "ProofController_proofRequestURL",
+        "operationId": "ProofController_proofRequestURL_api/v1",
         "parameters": [
           {
             "name": "lob_id",
@@ -1147,9 +1147,9 @@
         ]
       }
     },
-    "/api/lob/{lob_id}/proof-request/send-oob": {
+    "/api/v1/lob/{lob_id}/proof-request/send-oob": {
       "post": {
-        "operationId": "ProofController_proofRequestOOB",
+        "operationId": "ProofController_proofRequestOOB_api/v1",
         "parameters": [
           {
             "name": "lob_id",
@@ -1246,9 +1246,9 @@
         ]
       }
     },
-    "/api/lob/{lob_id}/proof-request/send-contact": {
+    "/api/v1/lob/{lob_id}/proof-request/send-contact": {
       "post": {
-        "operationId": "ProofController_proofRequestToContact",
+        "operationId": "ProofController_proofRequestToContact_api/v1",
         "parameters": [
           {
             "name": "lob_id",
@@ -1336,9 +1336,9 @@
         ]
       }
     },
-    "/api/lob/{lob_id}/send-problem-report": {
+    "/api/v1/lob/{lob_id}/send-problem-report": {
       "post": {
-        "operationId": "ProofController_sendProblemReport",
+        "operationId": "ProofController_sendProblemReport_api/v1",
         "parameters": [
           {
             "name": "lob_id",
@@ -1604,12 +1604,12 @@
           },
           "proofValidTill": {
             "type": "object",
-            "example": "2026-05-18T10:11:23.234Z",
+            "example": "2026-05-19T16:07:55.691Z",
             "description": "The timestamp or expiration time until which the proof is considered valid."
           },
           "proofValidFrom": {
             "type": "object",
-            "example": "2026-05-18T10:11:23.234Z",
+            "example": "2026-05-19T16:07:55.692Z",
             "description": ""
           },
           "restrictions": {
@@ -1644,12 +1644,12 @@
           },
           "proofValidTill": {
             "type": "object",
-            "example": "2026-05-18T10:11:23.235Z",
+            "example": "2026-05-19T16:07:55.692Z",
             "description": "The timestamp or expiration time until which the proof is considered valid."
           },
           "proofValidFrom": {
             "type": "object",
-            "example": "2026-05-18T10:11:23.236Z",
+            "example": "2026-05-19T16:07:55.692Z",
             "description": ""
           },
           "restrictions": {
