@@ -1,9 +1,9 @@
 {
   "openapi": "3.0.0",
   "paths": {
-    "/api/lob/{lob_id}/chat/contact/{contact_id}/send": {
+    "/api/v1/lob/{lob_id}/chat/contact/{contact_id}/send": {
       "post": {
-        "operationId": "ChatController_sendMessage",
+        "operationId": "ChatController_sendMessage_api/v1",
         "parameters": [
           {
             "name": "lob_id",
@@ -98,9 +98,9 @@
         ]
       }
     },
-    "/api/lob/{lob_id}/chat": {
+    "/api/v1/lob/{lob_id}/chat": {
       "get": {
-        "operationId": "ChatController_getAllMessages",
+        "operationId": "ChatController_getAllMessages_api/v1",
         "parameters": [
           {
             "name": "lob_id",
@@ -200,9 +200,9 @@
         ]
       }
     },
-    "/api/lob/{lob_id}/chat/contact/{contact_id}": {
+    "/api/v1/lob/{lob_id}/chat/contact/{contact_id}": {
       "get": {
-        "operationId": "ChatController_getMessagesByContact",
+        "operationId": "ChatController_getMessagesByContact_api/v1",
         "parameters": [
           {
             "name": "lob_id",
@@ -323,9 +323,9 @@
         ]
       }
     },
-    "/api/lob/{lob_id}/chat/contact/read": {
+    "/api/v1/lob/{lob_id}/chat/contact/read": {
       "patch": {
-        "operationId": "ChatController_markAsRead",
+        "operationId": "ChatController_markAsRead_api/v1",
         "parameters": [
           {
             "name": "lob_id",
