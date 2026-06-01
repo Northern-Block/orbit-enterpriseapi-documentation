@@ -1604,12 +1604,12 @@
           },
           "proofValidTill": {
             "type": "object",
-            "example": "2026-05-19T16:07:55.691Z",
+            "example": "2026-06-01T10:03:57.232Z",
             "description": "The timestamp or expiration time until which the proof is considered valid."
           },
           "proofValidFrom": {
             "type": "object",
-            "example": "2026-05-19T16:07:55.692Z",
+            "example": "2026-06-01T10:03:57.232Z",
             "description": ""
           },
           "restrictions": {
@@ -1644,12 +1644,12 @@
           },
           "proofValidTill": {
             "type": "object",
-            "example": "2026-05-19T16:07:55.692Z",
+            "example": "2026-06-01T10:03:57.233Z",
             "description": "The timestamp or expiration time until which the proof is considered valid."
           },
           "proofValidFrom": {
             "type": "object",
-            "example": "2026-05-19T16:07:55.692Z",
+            "example": "2026-06-01T10:03:57.233Z",
             "description": ""
           },
           "restrictions": {
