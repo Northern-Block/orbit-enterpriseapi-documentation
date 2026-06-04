@@ -243,281 +243,6 @@
         ]
       }
     },
-    "/api/v1/lob/tenant/join": {
-      "post": {
-        "description": "Creates a tenant subwallet in the Agent Service and links it to the multi-tenant LOB",
-        "operationId": "LobController_joinTenant_api/v1",
-        "parameters": [],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/JoinTenantDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Tenant joined successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/JoinTenantResponseDto"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "A required parameter was missing in the request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BadRequestResponse"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "URL cannot be found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/NotFoundErrorResponse"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "The server encountered an unexpected condition that prevented it from fulfilling the request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/InternalServerErrorResponse"
-                }
-              }
-            }
-          }
-        },
-        "summary": "Join a multi-tenant LOB",
-        "tags": [
-          "lob"
-        ]
-      }
-    },
-    "/api/v1/lob/{lob_id}/tenant-requests": {
-      "get": {
-        "operationId": "LobController_getTenantRequests_api/v1",
-        "parameters": [
-          {
-            "name": "lob_id",
-            "required": true,
-            "in": "path",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "page",
-            "required": false,
-            "in": "query",
-            "schema": {
-              "example": 1
-            }
-          },
-          {
-            "name": "limit",
-            "required": false,
-            "in": "query",
-            "schema": {
-              "enum": [
-                25,
-                50,
-                75,
-                100,
-                200
-              ],
-              "type": "number"
-            }
-          },
-          {
-            "name": "state",
-            "required": false,
-            "in": "query",
-            "schema": {
-              "enum": [
-                "PENDING",
-                "APPROVED",
-                "REJECTED"
-              ],
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "API request processed successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/TenantRequestResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "A required parameter was missing in the request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Invalid API Key included in the request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UnauthorizedResponse"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "URL cannot be found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/NotFoundErrorResponse"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "The server encountered an unexpected condition that prevented it from fulfilling the request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/InternalServerErrorResponse"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "api-key": []
-          },
-          {
-            "bearer": []
-          }
-        ],
-        "summary": "Get all tenant requests",
-        "tags": [
-          "lob"
-        ]
-      }
-    },
-    "/api/v1/lob/{lob_id}/approve-tenant-requests/{request_id}": {
-      "post": {
-        "operationId": "LobController_approveTenantRequests_api/v1",
-        "parameters": [
-          {
-            "name": "lob_id",
-            "required": true,
-            "in": "path",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "request_id",
-            "required": true,
-            "in": "path",
-            "schema": {
-              "type": "number"
-            }
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ApproveTenantRequestsDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "API request processed successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApproveTenantRequestsResponseDto"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "A required parameter was missing in the request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Invalid API Key included in the request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UnauthorizedResponse"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "URL cannot be found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/NotFoundErrorResponse"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "The server encountered an unexpected condition that prevented it from fulfilling the request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/InternalServerErrorResponse"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "api-key": []
-          },
-          {
-            "bearer": []
-          }
-        ],
-        "summary": "Approve tenant requests for a specific LOB",
-        "tags": [
-          "lob"
-        ]
-      }
-    },
     "/api/v1/lob/{lob_id}/did/create": {
       "post": {
         "operationId": "LobController_createDid_api/v1",
@@ -593,86 +318,6 @@
           }
         ],
         "summary": "Create Additional DID for LOB",
-        "tags": [
-          "lob"
-        ]
-      }
-    },
-    "/api/v1/lob/{lob_id}/tenant/approval": {
-      "patch": {
-        "operationId": "LobController_updateTenantApprovalFlag_api/v1",
-        "parameters": [
-          {
-            "name": "lob_id",
-            "required": true,
-            "in": "path",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "description": "Update Multi-Tenant Tenant Approval Flag Dto",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateMultiTenantApprovalFlagDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "API request processed successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UpdateMultiTenantApprovalFlagResponseDto"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "A required parameter was missing in the request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BadRequestResponse"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "URL cannot be found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/NotFoundErrorResponse"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "The server encountered an unexpected condition that prevented it from fulfilling the request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/InternalServerErrorResponse"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "api-key": []
-          },
-          {
-            "bearer": []
-          }
-        ],
-        "summary": "Update Multi-Tenant Tenant Approval Flags",
         "tags": [
           "lob"
         ]
@@ -1223,475 +868,6 @@
         ]
       }
     },
-    "/api/v1/lob/{lob_id}/tenants/summary": {
-      "get": {
-        "operationId": "LobController_getSubTenantSummary_api/v1",
-        "parameters": [
-          {
-            "name": "lob_id",
-            "required": true,
-            "in": "path",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "API request processed successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SubTenantSummaryResponseDto"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "A required parameter was missing in the request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Invalid API Key included in the request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UnauthorizedResponse"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "URL cannot be found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/NotFoundErrorResponse"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "The server encountered an unexpected condition that prevented it from fulfilling the request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/InternalServerErrorResponse"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "api-key": []
-          },
-          {
-            "bearer": []
-          }
-        ],
-        "summary": "Get sub-tenant summary counts for a multi-tenant LOB",
-        "tags": [
-          "lob"
-        ]
-      }
-    },
-    "/api/v1/lob/{lob_id}/tenants": {
-      "get": {
-        "operationId": "LobController_listSubTenants_api/v1",
-        "parameters": [
-          {
-            "name": "lob_id",
-            "required": true,
-            "in": "path",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "lifecycleState",
-            "required": false,
-            "in": "query",
-            "schema": {
-              "enum": [
-                "REQUEST",
-                "UNDER_REVIEW",
-                "APPROVED",
-                "PROVISIONING",
-                "READY",
-                "PROVISION_FAILED",
-                "SUSPENDED",
-                "DELETED",
-                "REJECTED"
-              ],
-              "type": "string"
-            }
-          },
-          {
-            "name": "limit",
-            "required": false,
-            "in": "query",
-            "schema": {
-              "enum": [
-                25,
-                50,
-                75,
-                100,
-                200
-              ],
-              "type": "number"
-            }
-          },
-          {
-            "name": "page",
-            "required": false,
-            "in": "query",
-            "schema": {
-              "example": 1
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "API request processed successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ListSubTenantsResponseDto"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "A required parameter was missing in the request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Invalid API Key included in the request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UnauthorizedResponse"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "URL cannot be found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/NotFoundErrorResponse"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "The server encountered an unexpected condition that prevented it from fulfilling the request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/InternalServerErrorResponse"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "api-key": []
-          },
-          {
-            "bearer": []
-          }
-        ],
-        "summary": "List sub-tenants for a multi-tenant LOB",
-        "tags": [
-          "lob"
-        ]
-      }
-    },
-    "/api/v1/lob/{lob_id}/tenants/{tenant_id}": {
-      "get": {
-        "operationId": "LobController_getSubTenantDetail_api/v1",
-        "parameters": [
-          {
-            "name": "lob_id",
-            "required": true,
-            "in": "path",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "tenant_id",
-            "required": true,
-            "in": "path",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "API request processed successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SubTenantDetailResponseDto"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "A required parameter was missing in the request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Invalid API Key included in the request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UnauthorizedResponse"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "URL cannot be found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/NotFoundErrorResponse"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "The server encountered an unexpected condition that prevented it from fulfilling the request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/InternalServerErrorResponse"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "api-key": []
-          },
-          {
-            "bearer": []
-          }
-        ],
-        "summary": "Get details of a specific sub-tenant",
-        "tags": [
-          "lob"
-        ]
-      },
-      "delete": {
-        "operationId": "LobController_deleteSubTenant_api/v1",
-        "parameters": [
-          {
-            "name": "lob_id",
-            "required": true,
-            "in": "path",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "tenant_id",
-            "required": true,
-            "in": "path",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "API request processed successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SubTenantActionResponseDto"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "A required parameter was missing in the request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Invalid API Key included in the request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UnauthorizedResponse"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "URL cannot be found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/NotFoundErrorResponse"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "The server encountered an unexpected condition that prevented it from fulfilling the request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/InternalServerErrorResponse"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "api-key": []
-          },
-          {
-            "bearer": []
-          }
-        ],
-        "summary": "Delete a sub-tenant",
-        "tags": [
-          "lob"
-        ]
-      }
-    },
-    "/api/v1/lob/{lob_id}/tenants/{tenant_id}/status": {
-      "patch": {
-        "operationId": "LobController_updateSubTenantStatus_api/v1",
-        "parameters": [
-          {
-            "name": "lob_id",
-            "required": true,
-            "in": "path",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "tenant_id",
-            "required": true,
-            "in": "path",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateTenantStatusDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "API request processed successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SubTenantActionResponseDto"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "A required parameter was missing in the request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Invalid API Key included in the request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UnauthorizedResponse"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "URL cannot be found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/NotFoundErrorResponse"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "The server encountered an unexpected condition that prevented it from fulfilling the request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/InternalServerErrorResponse"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "api-key": []
-          },
-          {
-            "bearer": []
-          }
-        ],
-        "summary": "Suspend or reactivate a sub-tenant",
-        "tags": [
-          "lob"
-        ]
-      }
-    },
     "/api/v1/lob/{lob_id}/status": {
       "get": {
         "operationId": "LobController_getLobStatus_api/v1",
@@ -1826,6 +1002,549 @@
         "summary": "Get LOB health status (API Key only)",
         "tags": [
           "lob"
+        ]
+      }
+    },
+    "/api/v1/lob/{multi_tenant_id}/tenant/join": {
+      "post": {
+        "description": "Creates a tenant subwallet in the Agent Service and links it to the multi-tenant LOB",
+        "operationId": "MultiTenancyController_joinTenant_api/v1",
+        "parameters": [
+          {
+            "name": "multi_tenant_id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JoinTenantDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Tenant joined successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JoinTenantResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "A required parameter was missing in the request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BadRequestResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "URL cannot be found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotFoundErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The server encountered an unexpected condition that prevented it from fulfilling the request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InternalServerErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Join a multi-tenant LOB",
+        "tags": [
+          "multi-tenant"
+        ]
+      }
+    },
+    "/api/v1/lob/{multi_tenant_id}/tenant": {
+      "get": {
+        "description": "Returns tenants filtered by state. JOIN_TENANT_REQUEST returns pending join requests (tenantRequest.id included). TENANT_DELETION_REQUEST returns sub-tenant deletion requests. All other values filter by LOB lifecycle state.",
+        "operationId": "MultiTenancyController_listTenants_api/v1",
+        "parameters": [
+          {
+            "name": "multi_tenant_id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "state",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "enum": [
+                "APPROVED",
+                "REJECTED",
+                "PROVISIONING",
+                "READY",
+                "PROVISION_FAILED",
+                "SUSPENDED",
+                "DELETED",
+                "JOIN_TENANT_REQUEST",
+                "TENANT_DELETION_REQUEST"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "enum": [
+                25,
+                50,
+                75,
+                100,
+                200
+              ],
+              "type": "number"
+            }
+          },
+          {
+            "name": "page",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "example": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "API request processed successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListTenantsResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "A required parameter was missing in the request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid API Key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnauthorizedResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "URL cannot be found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotFoundErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The server encountered an unexpected condition that prevented it from fulfilling the request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InternalServerErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "api-key": []
+          },
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Unified tenant retrieval — lifecycle states, join requests, or deletion requests",
+        "tags": [
+          "multi-tenant"
+        ]
+      }
+    },
+    "/api/v1/lob/{multi_tenant_id}/tenant/summary": {
+      "get": {
+        "operationId": "MultiTenancyController_getSubTenantSummary_api/v1",
+        "parameters": [
+          {
+            "name": "multi_tenant_id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "API request processed successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubTenantSummaryResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "A required parameter was missing in the request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid API Key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnauthorizedResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "URL cannot be found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotFoundErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The server encountered an unexpected condition that prevented it from fulfilling the request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InternalServerErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "api-key": []
+          },
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Get sub-tenant summary counts for a multi-tenant LOB",
+        "tags": [
+          "multi-tenant"
+        ]
+      }
+    },
+    "/api/v1/lob/{multi_tenant_id}/tenant/{tenant_id}": {
+      "get": {
+        "operationId": "MultiTenancyController_getSubTenantDetail_api/v1",
+        "parameters": [
+          {
+            "name": "multi_tenant_id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "tenant_id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "API request processed successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubTenantDetailResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "A required parameter was missing in the request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid API Key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnauthorizedResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "URL cannot be found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotFoundErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The server encountered an unexpected condition that prevented it from fulfilling the request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InternalServerErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "api-key": []
+          },
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Get details of a specific sub-tenant",
+        "tags": [
+          "multi-tenant"
+        ]
+      }
+    },
+    "/api/v1/lob/{multi_tenant_id}/tenant/approval": {
+      "patch": {
+        "operationId": "MultiTenancyController_updateTenantApprovalFlag_api/v1",
+        "parameters": [
+          {
+            "name": "multi_tenant_id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateMultiTenantApprovalFlagDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "API request processed successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateMultiTenantApprovalFlagResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "A required parameter was missing in the request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BadRequestResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "URL cannot be found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotFoundErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The server encountered an unexpected condition that prevented it from fulfilling the request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InternalServerErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "api-key": []
+          },
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Update Multi-Tenant Tenant Approval Flags",
+        "tags": [
+          "multi-tenant"
+        ]
+      }
+    },
+    "/api/v1/lob/{multi_tenant_id}/tenant/{tenant_id}/action": {
+      "post": {
+        "operationId": "MultiTenancyController_updateSubTenantStatus_api/v1",
+        "parameters": [
+          {
+            "name": "multi_tenant_id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "tenant_id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "action",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "enum": [
+                "APPROVE_JOIN_REQUEST",
+                "REJECT_JOIN_REQUEST",
+                "APPROVE_DELETION_REQUEST",
+                "REJECT_DELETION_REQUEST",
+                "SUSPEND_TENANT",
+                "REACTIVATE_TENANT",
+                "PURGE_DELETE_TENANT"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "API request processed successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubTenantActionResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "A required parameter was missing in the request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid API Key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnauthorizedResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "URL cannot be found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotFoundErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The server encountered an unexpected condition that prevented it from fulfilling the request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InternalServerErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "api-key": []
+          },
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Approve or Reject Tenant Join Request, Approve or Reject Tenant Deletion Request , Suspend or Reactivate Sub-Tenant , Purge Delete a Tenant",
+        "tags": [
+          "multi-tenant"
         ]
       }
     },
@@ -2162,7 +1881,7 @@
             }
           }
         },
-        "summary": "this api check application running health",
+        "summary": "Get health status of the lob service",
         "tags": [
           "health"
         ]
@@ -2720,437 +2439,6 @@
           "data"
         ]
       },
-      "JoinTenantDto": {
-        "type": "object",
-        "properties": {
-          "multiTenantLobId": {
-            "type": "string",
-            "example": "9ed7f510-5649-4b55-8170-c2bf958edecb",
-            "description": "The ID of the multi-tenant LOB to join"
-          },
-          "lobDisplayName": {
-            "type": "string",
-            "example": "Organization A",
-            "description": "Display name of organization registering the LOB"
-          },
-          "lobEmail": {
-            "type": "string",
-            "example": "admin@orga.com",
-            "description": "Email address of LOB Requestor"
-          },
-          "lobOrganizationName": {
-            "type": "string",
-            "example": "Organization A Inc.",
-            "description": "Name of the Organization registering the LOB"
-          },
-          "lobContactName": {
-            "type": "string",
-            "example": "John Doe",
-            "description": "Contact name for the LOB"
-          },
-          "lobRole": {
-            "type": "string",
-            "enum": [
-              "ISSUER",
-              "HOLDER",
-              "VERIFIER",
-              "SENDER",
-              "RECEIVER",
-              "PROVER"
-            ],
-            "description": "Specify the role of the LOB. Allowed Values: HOLDER, ISSUER, VERIFIER",
-            "example": [
-              "ISSUER"
-            ]
-          },
-          "didMethod": {
-            "type": "string",
-            "enum": [
-              "did:web",
-              "did:sov"
-            ],
-            "description": "Specify the DID Method of the LOB. Allowed Values: did:web, did:sov",
-            "example": "did:sov"
-          },
-          "writeLedgerId": {
-            "type": "number",
-            "example": 1,
-            "description": "If the DID of the LOB is a did:sov, please specify the ledger on which the DID will be stored. Allowed value is 1 (points to BCovrin ledger)"
-          },
-          "credentialFormat": {
-            "type": "string",
-            "enum": [
-              "ANONCRED",
-              "JSON_LD",
-              "vc+sd-jwt"
-            ],
-            "description": "Specify the credential format that the LOB supports. Allowed Values: ANONCREDS, JSON_LD and SD_JWT",
-            "example": "ANONCRED"
-          },
-          "lobEcoSystemName": {
-            "type": "string",
-            "description": "Name of the LOB ecosystem.",
-            "example": "default"
-          },
-          "lobTrustUrl": {
-            "type": "string",
-            "description": "The Trust URL associated with the Lob Issuer, providing a link to the issuer’s trust information.",
-            "example": "https://iata-api.trustregistry.nborbit.io"
-          },
-          "lobTrustAPIKey": {
-            "type": "string",
-            "description": "The Trust API Key associated with the Lob Issuer, providing a link to the issuer’s trust information.",
-            "example": "jk5NVeNc1ZfTGcCLfAWNGdY2Yd4YChbATpFRrmdERWg"
-          },
-          "lobExternalEndorser": {
-            "type": "boolean",
-            "description": "Indicates whether the Lob Issuer has its own external endorser. If true, the `endorserDetails` field must also be provided.",
-            "example": true
-          },
-          "endorserDetails": {
-            "description": "External endorser information. This is required when `lobExternalEndorser` is true.",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/EndorserDetails"
-              }
-            ]
-          },
-          "lobAutoFlags": {
-            "type": "object",
-            "example": {
-              "auto-ping-connection": true,
-              "auto-accept-invites": true,
-              "auto-accept-requests": false,
-              "auto-respond-messages": false,
-              "auto-respond-credential-offer": false,
-              "auto-respond-credential-request": false,
-              "auto-respond-credential-proposal": false,
-              "auto-store-credential": false,
-              "auto-respond-presentation-request": false,
-              "auto-respond-presentation-proposal": false,
-              "auto-verify-presentation": false
-            }
-          },
-          "requestTRMembership": {
-            "type": "boolean",
-            "default": false,
-            "description": "Indicates whether to request Trust Registry membership for the LOB.",
-            "example": false
-          }
-        },
-        "required": [
-          "multiTenantLobId",
-          "lobDisplayName",
-          "lobEmail",
-          "lobOrganizationName",
-          "lobContactName",
-          "lobRole",
-          "didMethod",
-          "writeLedgerId",
-          "credentialFormat"
-        ]
-      },
-      "TrustRegistryResponseFields": {
-        "type": "object",
-        "properties": {
-          "status": {
-            "type": "string",
-            "example": "success",
-            "description": "Status of the trust registry operation"
-          },
-          "responseMessage": {
-            "type": "string",
-            "example": "Operation completed successfully",
-            "description": "Status of the trust registry operation"
-          }
-        }
-      },
-      "JoinTenantResponse": {
-        "type": "object",
-        "properties": {
-          "responseDetails": {
-            "type": "string",
-            "example": "Tenant request with ID 1 has been created. Details have been emailed. Waiting for approval.",
-            "description": "Standardized responseDetails of the response body for series 200 response"
-          },
-          "publicDID": {
-            "type": "string",
-            "example": "did:sov:LjgpST2rjsoxYegQDRm7EL",
-            "description": "The public Decentralized Identifier (DID) associated with the LOB."
-          },
-          "lobId": {
-            "type": "string",
-            "example": "9ed7f510-5649-4b55-8170-c2bf958edecb",
-            "description": "The unique identifier of the LOB that the tenant has joined."
-          },
-          "trustRegistryMembershipResponse": {
-            "$ref": "#/components/schemas/TrustRegistryResponseFields"
-          }
-        },
-        "required": [
-          "responseDetails",
-          "publicDID",
-          "lobId",
-          "trustRegistryMembershipResponse"
-        ]
-      },
-      "JoinTenantResponseDto": {
-        "type": "object",
-        "properties": {
-          "success": {
-            "type": "boolean",
-            "example": true,
-            "description": "True if the tenant join operation was successful"
-          },
-          "message": {
-            "type": "string",
-            "example": "Tenant subwallet created and details sent via email",
-            "description": "Message describing the outcome of the request"
-          },
-          "data": {
-            "description": "Reserved for future use, empty for now",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/JoinTenantResponse"
-              }
-            ]
-          }
-        },
-        "required": [
-          "success",
-          "message",
-          "data"
-        ]
-      },
-      "OrganizationDto": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "example": "994db972-3d26-44e8-8451-b53805c2d037",
-            "description": "Organization unique identifier (UUID)"
-          },
-          "organizationName": {
-            "type": "string",
-            "example": "Organization A Inc.",
-            "description": "Full legal organization name"
-          },
-          "displayName": {
-            "type": "string",
-            "example": "Organization A",
-            "description": "Display name of the organization"
-          },
-          "email": {
-            "type": "string",
-            "example": "admin@orga.com",
-            "description": "Email linked to the organization"
-          }
-        },
-        "required": [
-          "id",
-          "organizationName",
-          "displayName",
-          "email"
-        ]
-      },
-      "TenantRequestDto": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "number",
-            "example": 1,
-            "description": "Tenant request ID"
-          },
-          "state": {
-            "type": "string",
-            "example": "APPROVED",
-            "description": "Tenant request status",
-            "enum": [
-              "APPROVED",
-              "PENDING",
-              "REJECTED"
-            ]
-          },
-          "trMembershipState": {
-            "type": "string",
-            "example": "PENDING",
-            "description": "Trust registry membership request status",
-            "enum": [
-              "PENDING",
-              "REQUESTED",
-              "APPROVED",
-              "REJECTED",
-              "FAILED"
-            ]
-          },
-          "multiTenantLob": {
-            "description": "Parent (multi-tenant) organization information",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/OrganizationDto"
-              }
-            ]
-          },
-          "tenantLob": {
-            "description": "Tenant organization information",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/OrganizationDto"
-              }
-            ]
-          }
-        },
-        "required": [
-          "id",
-          "state",
-          "trMembershipState",
-          "multiTenantLob",
-          "tenantLob"
-        ]
-      },
-      "PaginationMeta": {
-        "type": "object",
-        "properties": {
-          "totalItems": {
-            "type": "number",
-            "example": 100,
-            "description": "The total number of items available in the dataset."
-          },
-          "itemCount": {
-            "type": "number",
-            "example": 10,
-            "description": "The number of items on the current page."
-          },
-          "itemsPerPage": {
-            "type": "number",
-            "example": 10,
-            "description": "The number of items displayed per page."
-          },
-          "totalPages": {
-            "type": "number",
-            "example": 10,
-            "description": "The total number of pages available based on the dataset size and items per page."
-          },
-          "currentPage": {
-            "type": "number",
-            "example": 1,
-            "description": "The current page number being viewed."
-          }
-        },
-        "required": [
-          "totalItems",
-          "itemCount",
-          "itemsPerPage",
-          "totalPages",
-          "currentPage"
-        ]
-      },
-      "GetTenantRequestRecord": {
-        "type": "object",
-        "properties": {
-          "items": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/TenantRequestDto"
-            }
-          },
-          "meta": {
-            "$ref": "#/components/schemas/PaginationMeta"
-          }
-        },
-        "required": [
-          "items",
-          "meta"
-        ]
-      },
-      "TenantRequestResponse": {
-        "type": "object",
-        "properties": {
-          "success": {
-            "type": "boolean",
-            "example": true,
-            "description": "Should be “true” in the response body for series 200 response"
-          },
-          "message": {
-            "type": "string",
-            "example": "Successfully retrieved tenant requests",
-            "description": "Standardized description of the response body for series 200, 300, 400 and 500 response"
-          },
-          "data": {
-            "$ref": "#/components/schemas/GetTenantRequestRecord"
-          }
-        },
-        "required": [
-          "success",
-          "message",
-          "data"
-        ]
-      },
-      "ApproveTenantRequestsDto": {
-        "type": "object",
-        "properties": {
-          "state": {
-            "type": "string",
-            "enum": [
-              "PENDING",
-              "APPROVED",
-              "REJECTED"
-            ],
-            "example": "APPROVED",
-            "description": "New state for the tenant request (APPROVED, REJECTED)"
-          }
-        },
-        "required": [
-          "state"
-        ]
-      },
-      "ApproveTenantRequestsResponse": {
-        "type": "object",
-        "properties": {
-          "publicDID": {
-            "type": "string",
-            "example": "did:sov:LjgpST2rjsoxYegQDRm7EL",
-            "description": "The public Decentralized Identifier (DID) associated with the LOB."
-          },
-          "lobId": {
-            "type": "string",
-            "example": "9ed7f510-5649-4b55-8170-c2bf958edecb",
-            "description": "The unique identifier of the LOB that the tenant has joined."
-          }
-        },
-        "required": [
-          "publicDID",
-          "lobId"
-        ]
-      },
-      "ApproveTenantRequestsResponseDto": {
-        "type": "object",
-        "properties": {
-          "success": {
-            "type": "boolean",
-            "example": true,
-            "description": "Should be true for successful requests"
-          },
-          "message": {
-            "type": "string",
-            "example": "Tenant request approved successfully and details sent via email",
-            "description": "Human-readable message about the operation result"
-          },
-          "data": {
-            "description": "The updated tenant request record",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ApproveTenantRequestsResponse"
-              }
-            ]
-          }
-        },
-        "required": [
-          "success",
-          "message",
-          "data"
-        ]
-      },
       "CreateDIDDto": {
         "type": "object",
         "properties": {
@@ -3210,42 +2498,20 @@
           "data"
         ]
       },
-      "UpdateMultiTenantApprovalFlagDto": {
+      "TrustRegistryResponseFields": {
         "type": "object",
         "properties": {
-          "tenantApprovalRequired": {
-            "type": "boolean",
-            "example": true,
-            "description": "Indicates whether tenant-level approval is required for this operation."
-          }
-        },
-        "required": [
-          "tenantApprovalRequired"
-        ]
-      },
-      "UpdateMultiTenantApprovalFlagResponseDto": {
-        "type": "object",
-        "properties": {
-          "success": {
-            "type": "boolean",
-            "example": true,
-            "description": "Should be true for successful requests"
-          },
-          "message": {
+          "status": {
             "type": "string",
-            "example": "Tenant approval flag successfully updated for LOB ID: ce30742b-364c-4fbc-9ed6-0ec08760a813",
-            "description": "Human-readable message about the operation result"
+            "example": "success",
+            "description": "Status of the trust registry operation"
           },
-          "data": {
-            "type": "object",
-            "description": "The response payload containing additional data."
+          "responseMessage": {
+            "type": "string",
+            "example": "Operation completed successfully",
+            "description": "Status of the trust registry operation"
           }
-        },
-        "required": [
-          "success",
-          "message",
-          "data"
-        ]
+        }
       },
       "RequestTRMembershipDto": {
         "type": "object",
@@ -3525,284 +2791,6 @@
           "data"
         ]
       },
-      "SubTenantStateCountDto": {
-        "type": "object",
-        "properties": {
-          "state": {
-            "type": "string",
-            "enum": [
-              "REQUEST",
-              "UNDER_REVIEW",
-              "APPROVED",
-              "PROVISIONING",
-              "READY",
-              "PROVISION_FAILED",
-              "SUSPENDED",
-              "DELETED",
-              "REJECTED"
-            ]
-          },
-          "count": {
-            "type": "number",
-            "example": 12
-          }
-        },
-        "required": [
-          "state",
-          "count"
-        ]
-      },
-      "SubTenantSummaryDataDto": {
-        "type": "object",
-        "properties": {
-          "total": {
-            "type": "number",
-            "example": 42
-          },
-          "byState": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SubTenantStateCountDto"
-            }
-          },
-          "slaBreachCount": {
-            "type": "number",
-            "example": 3
-          }
-        },
-        "required": [
-          "total",
-          "byState",
-          "slaBreachCount"
-        ]
-      },
-      "SubTenantSummaryResponseDto": {
-        "type": "object",
-        "properties": {
-          "success": {
-            "type": "boolean",
-            "example": true
-          },
-          "message": {
-            "type": "string",
-            "example": "Sub-tenant summary retrieved successfully."
-          },
-          "data": {
-            "$ref": "#/components/schemas/SubTenantSummaryDataDto"
-          }
-        },
-        "required": [
-          "success",
-          "message",
-          "data"
-        ]
-      },
-      "SubTenantItemDto": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "example": "994db972-3d26-44e8-8451-b53805c2d037"
-          },
-          "displayName": {
-            "type": "string",
-            "example": "Tenant Org"
-          },
-          "organizationName": {
-            "type": "string",
-            "example": "Tenant Organization Inc."
-          },
-          "email": {
-            "type": "string",
-            "example": "tenant@example.com"
-          },
-          "lifecycleState": {
-            "type": "string",
-            "enum": [
-              "REQUEST",
-              "UNDER_REVIEW",
-              "APPROVED",
-              "PROVISIONING",
-              "READY",
-              "PROVISION_FAILED",
-              "SUSPENDED",
-              "DELETED",
-              "REJECTED"
-            ],
-            "example": "READY"
-          },
-          "createdAt": {
-            "format": "date-time",
-            "type": "string",
-            "example": "2026-04-13T00:00:00.000Z"
-          }
-        },
-        "required": [
-          "id",
-          "displayName",
-          "organizationName",
-          "email",
-          "lifecycleState",
-          "createdAt"
-        ]
-      },
-      "SubTenantListDataDto": {
-        "type": "object",
-        "properties": {
-          "items": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SubTenantItemDto"
-            }
-          },
-          "meta": {
-            "$ref": "#/components/schemas/PaginationMeta"
-          }
-        },
-        "required": [
-          "items",
-          "meta"
-        ]
-      },
-      "ListSubTenantsResponseDto": {
-        "type": "object",
-        "properties": {
-          "success": {
-            "type": "boolean",
-            "example": true
-          },
-          "message": {
-            "type": "string",
-            "example": "Sub-tenants retrieved successfully."
-          },
-          "data": {
-            "$ref": "#/components/schemas/SubTenantListDataDto"
-          }
-        },
-        "required": [
-          "success",
-          "message",
-          "data"
-        ]
-      },
-      "SubTenantDetailDto": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "example": "994db972-3d26-44e8-8451-b53805c2d037"
-          },
-          "displayName": {
-            "type": "string",
-            "example": "Tenant Org"
-          },
-          "organizationName": {
-            "type": "string",
-            "example": "Tenant Organization Inc."
-          },
-          "email": {
-            "type": "string",
-            "example": "tenant@example.com"
-          },
-          "lifecycleState": {
-            "type": "string",
-            "enum": [
-              "REQUEST",
-              "UNDER_REVIEW",
-              "APPROVED",
-              "PROVISIONING",
-              "READY",
-              "PROVISION_FAILED",
-              "SUSPENDED",
-              "DELETED",
-              "REJECTED"
-            ],
-            "example": "READY"
-          },
-          "agentType": {
-            "type": "string",
-            "example": "TENANT"
-          },
-          "createdAt": {
-            "format": "date-time",
-            "type": "string",
-            "example": "2026-04-13T00:00:00.000Z"
-          },
-          "updatedAt": {
-            "format": "date-time",
-            "type": "string",
-            "example": "2026-04-13T00:00:00.000Z"
-          }
-        },
-        "required": [
-          "id",
-          "displayName",
-          "organizationName",
-          "email",
-          "lifecycleState",
-          "agentType",
-          "createdAt",
-          "updatedAt"
-        ]
-      },
-      "SubTenantDetailResponseDto": {
-        "type": "object",
-        "properties": {
-          "success": {
-            "type": "boolean",
-            "example": true
-          },
-          "message": {
-            "type": "string",
-            "example": "Sub-tenant details retrieved successfully."
-          },
-          "data": {
-            "$ref": "#/components/schemas/SubTenantDetailDto"
-          }
-        },
-        "required": [
-          "success",
-          "message",
-          "data"
-        ]
-      },
-      "UpdateTenantStatusDto": {
-        "type": "object",
-        "properties": {
-          "action": {
-            "type": "string",
-            "enum": [
-              "SUSPEND",
-              "REACTIVATE"
-            ]
-          }
-        },
-        "required": [
-          "action"
-        ]
-      },
-      "SubTenantActionResponseDto": {
-        "type": "object",
-        "properties": {
-          "success": {
-            "type": "boolean",
-            "example": true
-          },
-          "message": {
-            "type": "string",
-            "example": "Operation completed successfully."
-          },
-          "data": {
-            "type": "object",
-            "example": {}
-          }
-        },
-        "required": [
-          "success",
-          "message",
-          "data"
-        ]
-      },
       "LobStatusResponseDto": {
         "type": "object",
         "properties": {
@@ -3818,6 +2806,7 @@
               "PROVISION_FAILED",
               "SUSPENDED",
               "DELETED",
+              "PURGE_DELETED",
               "REJECTED"
             ]
           },
@@ -3893,6 +2882,478 @@
         },
         "required": [
           "agent"
+        ]
+      },
+      "JoinTenantDto": {
+        "type": "object",
+        "properties": {
+          "lobDisplayName": {
+            "type": "string",
+            "example": "Organization A",
+            "description": "Display name of organization registering the LOB"
+          },
+          "lobEmail": {
+            "type": "string",
+            "example": "admin@orga.com",
+            "description": "Email address of LOB Requestor"
+          },
+          "lobOrganizationName": {
+            "type": "string",
+            "example": "Organization A Inc.",
+            "description": "Name of the Organization registering the LOB"
+          },
+          "lobContactName": {
+            "type": "string",
+            "example": "John Doe",
+            "description": "Contact name for the LOB"
+          },
+          "lobRole": {
+            "type": "string",
+            "enum": [
+              "ISSUER",
+              "HOLDER",
+              "VERIFIER",
+              "SENDER",
+              "RECEIVER",
+              "PROVER"
+            ],
+            "description": "Specify the role of the LOB. Allowed Values: HOLDER, ISSUER, VERIFIER",
+            "example": [
+              "ISSUER"
+            ]
+          },
+          "didMethod": {
+            "type": "string",
+            "enum": [
+              "did:web",
+              "did:sov"
+            ],
+            "description": "Specify the DID Method of the LOB. Allowed Values: did:web, did:sov",
+            "example": "did:sov"
+          },
+          "writeLedgerId": {
+            "type": "number",
+            "example": 1,
+            "description": "If the DID of the LOB is a did:sov, please specify the ledger on which the DID will be stored. Allowed value is 1 (points to BCovrin ledger)"
+          },
+          "credentialFormat": {
+            "type": "string",
+            "enum": [
+              "ANONCRED",
+              "JSON_LD",
+              "vc+sd-jwt"
+            ],
+            "description": "Specify the credential format that the LOB supports. Allowed Values: ANONCREDS, JSON_LD and SD_JWT",
+            "example": "ANONCRED"
+          },
+          "lobEcoSystemName": {
+            "type": "string",
+            "description": "Name of the LOB ecosystem.",
+            "example": "default"
+          },
+          "lobTrustUrl": {
+            "type": "string",
+            "description": "The Trust URL associated with the Lob Issuer, providing a link to the issuer's trust information.",
+            "example": "https://iata-api.trustregistry.nborbit.io"
+          },
+          "lobTrustAPIKey": {
+            "type": "string",
+            "description": "The Trust API Key associated with the Lob Issuer, providing a link to the issuer's trust information.",
+            "example": "jk5NVeNc1ZfTGcCLfAWNGdY2Yd4YChbATpFRrmdERWg"
+          },
+          "lobExternalEndorser": {
+            "type": "boolean",
+            "description": "Indicates whether the Lob Issuer has its own external endorser. If true, the `endorserDetails` field must also be provided.",
+            "example": true
+          },
+          "endorserDetails": {
+            "description": "External endorser information. This is required when `lobExternalEndorser` is true.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/EndorserDetails"
+              }
+            ]
+          },
+          "lobAutoFlags": {
+            "type": "object",
+            "example": {
+              "auto-ping-connection": true,
+              "auto-accept-invites": true,
+              "auto-accept-requests": false,
+              "auto-respond-messages": false,
+              "auto-respond-credential-offer": false,
+              "auto-respond-credential-request": false,
+              "auto-respond-credential-proposal": false,
+              "auto-store-credential": false,
+              "auto-respond-presentation-request": false,
+              "auto-respond-presentation-proposal": false,
+              "auto-verify-presentation": false
+            }
+          },
+          "requestTRMembership": {
+            "type": "boolean",
+            "default": false,
+            "description": "Indicates whether to request Trust Registry membership for the LOB.",
+            "example": false
+          }
+        },
+        "required": [
+          "lobDisplayName",
+          "lobEmail",
+          "lobOrganizationName",
+          "lobContactName",
+          "lobRole",
+          "didMethod",
+          "writeLedgerId",
+          "credentialFormat"
+        ]
+      },
+      "JoinTenantResponse": {
+        "type": "object",
+        "properties": {
+          "responseDetails": {
+            "type": "string",
+            "example": "Tenant request with ID 1 has been created. Details have been emailed. Waiting for approval.",
+            "description": "Standardized responseDetails of the response body for series 200 response"
+          },
+          "publicDID": {
+            "type": "string",
+            "example": "did:sov:LjgpST2rjsoxYegQDRm7EL",
+            "description": "The public Decentralized Identifier (DID) associated with the LOB."
+          },
+          "lobId": {
+            "type": "string",
+            "example": "9ed7f510-5649-4b55-8170-c2bf958edecb",
+            "description": "The unique identifier of the LOB that the tenant has joined."
+          },
+          "trustRegistryMembershipResponse": {
+            "$ref": "#/components/schemas/TrustRegistryResponseFields"
+          }
+        },
+        "required": [
+          "responseDetails",
+          "publicDID",
+          "lobId",
+          "trustRegistryMembershipResponse"
+        ]
+      },
+      "JoinTenantResponseDto": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "example": true,
+            "description": "True if the tenant join operation was successful"
+          },
+          "message": {
+            "type": "string",
+            "example": "Tenant subwallet created and details sent via email",
+            "description": "Message describing the outcome of the request"
+          },
+          "data": {
+            "description": "Reserved for future use, empty for now",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/JoinTenantResponse"
+              }
+            ]
+          }
+        },
+        "required": [
+          "success",
+          "message",
+          "data"
+        ]
+      },
+      "PaginationMeta": {
+        "type": "object",
+        "properties": {
+          "totalItems": {
+            "type": "number",
+            "example": 100,
+            "description": "The total number of items available in the dataset."
+          },
+          "itemCount": {
+            "type": "number",
+            "example": 10,
+            "description": "The number of items on the current page."
+          },
+          "itemsPerPage": {
+            "type": "number",
+            "example": 10,
+            "description": "The number of items displayed per page."
+          },
+          "totalPages": {
+            "type": "number",
+            "example": 10,
+            "description": "The total number of pages available based on the dataset size and items per page."
+          },
+          "currentPage": {
+            "type": "number",
+            "example": 1,
+            "description": "The current page number being viewed."
+          }
+        },
+        "required": [
+          "totalItems",
+          "itemCount",
+          "itemsPerPage",
+          "totalPages",
+          "currentPage"
+        ]
+      },
+      "ListTenantsDataDto": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "description": "Item shape varies by state: JoinRequestItemDto | DeletionRequestItemDto | SubTenantItemDto",
+            "type": "array",
+            "items": {
+              "type": "array"
+            }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/PaginationMeta"
+          }
+        },
+        "required": [
+          "items",
+          "meta"
+        ]
+      },
+      "ListTenantsResponseDto": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "example": true
+          },
+          "message": {
+            "type": "string",
+            "example": "Tenants retrieved successfully."
+          },
+          "data": {
+            "$ref": "#/components/schemas/ListTenantsDataDto"
+          }
+        },
+        "required": [
+          "success",
+          "message",
+          "data"
+        ]
+      },
+      "SubTenantStateCountDto": {
+        "type": "object",
+        "properties": {
+          "state": {
+            "type": "string",
+            "enum": [
+              "REQUEST",
+              "UNDER_REVIEW",
+              "APPROVED",
+              "PROVISIONING",
+              "READY",
+              "PROVISION_FAILED",
+              "SUSPENDED",
+              "DELETED",
+              "PURGE_DELETED",
+              "REJECTED"
+            ]
+          },
+          "count": {
+            "type": "number",
+            "example": 12
+          }
+        },
+        "required": [
+          "state",
+          "count"
+        ]
+      },
+      "SubTenantSummaryDataDto": {
+        "type": "object",
+        "properties": {
+          "total": {
+            "type": "number",
+            "example": 42
+          },
+          "byState": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SubTenantStateCountDto"
+            }
+          },
+          "slaBreachCount": {
+            "type": "number",
+            "example": 3
+          }
+        },
+        "required": [
+          "total",
+          "byState",
+          "slaBreachCount"
+        ]
+      },
+      "SubTenantSummaryResponseDto": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "example": true
+          },
+          "message": {
+            "type": "string",
+            "example": "Sub-tenant summary retrieved successfully."
+          },
+          "data": {
+            "$ref": "#/components/schemas/SubTenantSummaryDataDto"
+          }
+        },
+        "required": [
+          "success",
+          "message",
+          "data"
+        ]
+      },
+      "SubTenantDetailDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "994db972-3d26-44e8-8451-b53805c2d037"
+          },
+          "displayName": {
+            "type": "string",
+            "example": "Tenant Org"
+          },
+          "organizationName": {
+            "type": "string",
+            "example": "Tenant Organization Inc."
+          },
+          "email": {
+            "type": "string",
+            "example": "tenant@example.com"
+          },
+          "lifecycleState": {
+            "type": "string",
+            "enum": [
+              "REQUEST",
+              "UNDER_REVIEW",
+              "APPROVED",
+              "PROVISIONING",
+              "READY",
+              "PROVISION_FAILED",
+              "SUSPENDED",
+              "DELETED",
+              "PURGE_DELETED",
+              "REJECTED"
+            ],
+            "example": "READY"
+          },
+          "agentType": {
+            "type": "string",
+            "example": "TENANT"
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string",
+            "example": "2026-04-13T00:00:00.000Z"
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string",
+            "example": "2026-04-13T00:00:00.000Z"
+          }
+        },
+        "required": [
+          "id",
+          "displayName",
+          "organizationName",
+          "email",
+          "lifecycleState",
+          "agentType",
+          "createdAt",
+          "updatedAt"
+        ]
+      },
+      "SubTenantDetailResponseDto": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "example": true
+          },
+          "message": {
+            "type": "string",
+            "example": "Sub-tenant details retrieved successfully."
+          },
+          "data": {
+            "$ref": "#/components/schemas/SubTenantDetailDto"
+          }
+        },
+        "required": [
+          "success",
+          "message",
+          "data"
+        ]
+      },
+      "UpdateMultiTenantApprovalFlagDto": {
+        "type": "object",
+        "properties": {
+          "tenantApprovalRequired": {
+            "type": "boolean",
+            "example": true,
+            "description": "Indicates whether tenant-level approval is required for this operation."
+          }
+        },
+        "required": [
+          "tenantApprovalRequired"
+        ]
+      },
+      "UpdateMultiTenantApprovalFlagResponseDto": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "example": true,
+            "description": "Should be true for successful requests"
+          },
+          "message": {
+            "type": "string",
+            "example": "Tenant approval flag successfully updated for LOB ID: ce30742b-364c-4fbc-9ed6-0ec08760a813",
+            "description": "Human-readable message about the operation result"
+          },
+          "data": {
+            "type": "object",
+            "description": "The response payload containing additional data."
+          }
+        },
+        "required": [
+          "success",
+          "message",
+          "data"
+        ]
+      },
+      "SubTenantActionResponseDto": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "example": true
+          },
+          "message": {
+            "type": "string",
+            "example": "Operation completed successfully."
+          },
+          "data": {
+            "type": "object",
+            "example": {}
+          }
+        },
+        "required": [
+          "success",
+          "message",
+          "data"
         ]
       },
       "TriggerMigrationRequestDto": {

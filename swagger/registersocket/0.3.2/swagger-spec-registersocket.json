@@ -241,7 +241,7 @@
             }
           }
         },
-        "summary": "this api check application running health",
+        "summary": "Get health status of the registersocket service",
         "tags": [
           "health"
         ]

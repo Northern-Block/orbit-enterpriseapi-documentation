@@ -164,7 +164,7 @@
             }
           }
         },
-        "summary": "this api check application running health",
+        "summary": "Get health status of the verifier service",
         "tags": [
           "health"
         ]
@@ -1604,12 +1604,12 @@
           },
           "proofValidTill": {
             "type": "object",
-            "example": "2026-05-19T16:07:55.691Z",
+            "example": "2026-06-04T09:42:38.804Z",
             "description": "The timestamp or expiration time until which the proof is considered valid."
           },
           "proofValidFrom": {
             "type": "object",
-            "example": "2026-05-19T16:07:55.692Z",
+            "example": "2026-06-04T09:42:38.804Z",
             "description": ""
           },
           "restrictions": {
@@ -1644,12 +1644,12 @@
           },
           "proofValidTill": {
             "type": "object",
-            "example": "2026-05-19T16:07:55.692Z",
+            "example": "2026-06-04T09:42:38.805Z",
             "description": "The timestamp or expiration time until which the proof is considered valid."
           },
           "proofValidFrom": {
             "type": "object",
-            "example": "2026-05-19T16:07:55.692Z",
+            "example": "2026-06-04T09:42:38.805Z",
             "description": ""
           },
           "restrictions": {
