@@ -92,7 +92,7 @@
             "bearer": []
           }
         ],
-        "summary": "Send a message",
+        "summary": "Send A Message",
         "tags": [
           "chat"
         ]
@@ -194,7 +194,7 @@
             "bearer": []
           }
         ],
-        "summary": "Get all messages from all contacts",
+        "summary": "Get All Messages From All Contacts",
         "tags": [
           "chat"
         ]
@@ -316,7 +316,7 @@
             "bearer": []
           }
         ],
-        "summary": "Get all messages for a contact",
+        "summary": "Get All Messages From A Contact",
         "tags": [
           "chat",
           "chat"
@@ -404,7 +404,7 @@
             "bearer": []
           }
         ],
-        "summary": "Mark a message as read",
+        "summary": "Mark A Message As Read",
         "tags": [
           "chat"
         ]
@@ -573,7 +573,7 @@
             }
           }
         },
-        "summary": "Get health status of the chat service",
+        "summary": "Health Check for Chat Service",
         "tags": [
           "health"
         ]

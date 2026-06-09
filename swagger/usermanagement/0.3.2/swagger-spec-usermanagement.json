@@ -68,7 +68,7 @@
             }
           }
         },
-        "summary": "LOB Login",
+        "summary": "Login Endpoint for LOB and Members",
         "tags": []
       }
     },
@@ -147,7 +147,7 @@
             "bearer": []
           }
         ],
-        "summary": "Add new Member in group (Only Admin can access)",
+        "summary": "Create New LOB Member",
         "tags": []
       }
     },
@@ -215,7 +215,7 @@
             "bearer": []
           }
         ],
-        "summary": "Get current authenticated user profile",
+        "summary": "Retrieve User Profile",
         "tags": []
       }
     },
@@ -286,7 +286,7 @@
             }
           }
         },
-        "summary": "Refresh access token using refresh token",
+        "summary": "Renew JWT Access Token",
         "tags": []
       }
     },
@@ -354,7 +354,7 @@
             "bearer": []
           }
         ],
-        "summary": "Logout the current login User",
+        "summary": "Logout Endpoint for LOB and Members",
         "tags": []
       }
     },
@@ -521,7 +521,7 @@
             }
           }
         },
-        "summary": "Get health status of the usermanagement service",
+        "summary": "Health Check for User Management Service",
         "tags": [
           "health"
         ]

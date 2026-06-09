@@ -67,7 +67,7 @@
             }
           }
         },
-        "summary": "The Register API is called to register your Line of Business (LOB) with Orbit Enterprise API ",
+        "summary": "Register LOB",
         "tags": [
           "lob"
         ]
@@ -148,7 +148,7 @@
             }
           }
         },
-        "summary": "Validate an external IdP-issued JWT against the LOB's registered idpConfig. Runs alg → JWKS fetch → signature → iss → aud → exp → sub. Returns normalized claims on success.",
+        "summary": "Verify JWT to Retrieve API Key",
         "tags": [
           "lob"
         ]
@@ -237,7 +237,7 @@
             "bearer": []
           }
         ],
-        "summary": "The Update API is called to update the trust registry information of your registered LOB",
+        "summary": "Update Trust Registry Details",
         "tags": [
           "lob"
         ]
@@ -386,7 +386,7 @@
             "bearer": []
           }
         ],
-        "summary": "Request Trust Registry Membership for LOB DID",
+        "summary": "Request A Trust Registry Membership",
         "tags": [
           "lob"
         ]
@@ -485,7 +485,7 @@
             "bearer": []
           }
         ],
-        "summary": "Submit a deletion request for a LOB",
+        "summary": "Submit a Deletion Request",
         "tags": [
           "lob"
         ]
@@ -562,7 +562,7 @@
             "bearer": []
           }
         ],
-        "summary": "Get the active deletion request for a LOB",
+        "summary": "Retrieve Status of Deletion Request",
         "tags": [
           "lob"
         ]
@@ -639,7 +639,7 @@
             "bearer": []
           }
         ],
-        "summary": "Cancel a pending deletion request for a LOB",
+        "summary": "Cancel A Deletion Request",
         "tags": [
           "lob"
         ]
@@ -701,7 +701,7 @@
             }
           }
         },
-        "summary": "Request an OTP to authorize an API key rotation for a LOB",
+        "summary": "Generate OTP to Retrieve API Key",
         "tags": [
           "lob"
         ]
@@ -783,7 +783,7 @@
             }
           }
         },
-        "summary": "Verify the OTP and rotate the LOB API key",
+        "summary": "Verify OTP to Retrieve API Key",
         "tags": [
           "lob"
         ]
@@ -862,7 +862,7 @@
             "bearer": []
           }
         ],
-        "summary": "Get API key metadata for a LOB (no key values returned)",
+        "summary": "Retrieve API Key Metadata",
         "tags": [
           "lob"
         ]
@@ -923,7 +923,7 @@
             }
           }
         },
-        "summary": "Get LOB status and lifecycle information",
+        "summary": "Retrieve LOB Details",
         "tags": [
           "lob"
         ]
@@ -999,7 +999,7 @@
             "api-key": []
           }
         ],
-        "summary": "Get LOB health status (API Key only)",
+        "summary": "Retrieve LOB Health Status",
         "tags": [
           "lob"
         ]
@@ -1071,7 +1071,7 @@
             }
           }
         },
-        "summary": "Join a multi-tenant LOB",
+        "summary": "Join A Multi-Tenant LOB",
         "tags": [
           "multi-tenant"
         ]
@@ -1193,7 +1193,7 @@
             "bearer": []
           }
         ],
-        "summary": "Unified tenant retrieval — lifecycle states, join requests, or deletion requests",
+        "summary": "Retrieve Current State of All Tenants",
         "tags": [
           "multi-tenant"
         ]
@@ -1272,7 +1272,7 @@
             "bearer": []
           }
         ],
-        "summary": "Get sub-tenant summary counts for a multi-tenant LOB",
+        "summary": "Retrieve Sub-Tenant Count",
         "tags": [
           "multi-tenant"
         ]
@@ -1359,7 +1359,7 @@
             "bearer": []
           }
         ],
-        "summary": "Get details of a specific sub-tenant",
+        "summary": "Retrieve Sub-Tenant Details",
         "tags": [
           "multi-tenant"
         ]
@@ -1438,7 +1438,7 @@
             "bearer": []
           }
         ],
-        "summary": "Update Multi-Tenant Tenant Approval Flags",
+        "summary": "Update Tenant Approval Flag",
         "tags": [
           "multi-tenant"
         ]
@@ -1542,7 +1542,7 @@
             "bearer": []
           }
         ],
-        "summary": "Approve or Reject Tenant Join Request, Approve or Reject Tenant Deletion Request , Suspend or Reactivate Sub-Tenant , Purge Delete a Tenant",
+        "summary": "Tenant Action",
         "tags": [
           "multi-tenant"
         ]
@@ -1632,7 +1632,7 @@
             "bearer": []
           }
         ],
-        "summary": "Trigger API version migration for a LOB",
+        "summary": "Upgrade LOB to New Version",
         "tags": [
           "LOB Migration"
         ]
@@ -1712,7 +1712,7 @@
             "bearer": []
           }
         ],
-        "summary": "Get current migration status for a LOB",
+        "summary": "Retrieve Upgrade Status",
         "tags": [
           "LOB Migration"
         ]
@@ -1881,7 +1881,7 @@
             }
           }
         },
-        "summary": "Get health status of the lob service",
+        "summary": "Health Check for LOB Service",
         "tags": [
           "health"
         ]
@@ -3107,13 +3107,36 @@
         "properties": {
           "items": {
             "description": "Item shape varies by state: JoinRequestItemDto | DeletionRequestItemDto | SubTenantItemDto",
+            "example": [
+              {
+                "id": 131,
+                "tenantLob": {
+                  "id": "66aa5776-3fcc-41da-8c36-fd9ce9871df7",
+                  "displayName": "tenant agent henry",
+                  "organizationName": "tenant agent henry",
+                  "email": "tenantagenthenry@yopmail.com",
+                  "lifecycleState": "REQUEST"
+                }
+              }
+            ],
             "type": "array",
             "items": {
               "type": "array"
             }
           },
           "meta": {
-            "$ref": "#/components/schemas/PaginationMeta"
+            "example": {
+              "totalItems": 100,
+              "itemCount": 10,
+              "itemsPerPage": 10,
+              "totalPages": 10,
+              "currentPage": 1
+            },
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/PaginationMeta"
+              }
+            ]
           }
         },
         "required": [
