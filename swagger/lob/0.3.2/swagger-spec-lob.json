@@ -647,7 +647,6 @@
     },
     "/api/v1/lob/{lob_id}/get-otp": {
       "post": {
-        "description": "Sends a 6-digit one-time code to the registered LOB email. The OTP is valid for 5 minutes and is single-use.",
         "operationId": "LobController_getOtp_api/v1",
         "parameters": [
           {
@@ -709,7 +708,6 @@
     },
     "/api/v1/lob/{lob_id}/verify-otp": {
       "post": {
-        "description": "Verifies the 6-digit OTP, invalidates the existing API key, generates a new one, and returns it in the response.",
         "operationId": "LobController_verifyOtp_api/v1",
         "parameters": [
           {
@@ -1640,7 +1638,6 @@
     },
     "/api/lob/{lob_id}/migration-status": {
       "get": {
-        "description": "Returns current apiVersion and migrationStatus. Admin only.",
         "operationId": "AdminMigrationController_getMigrationStatus",
         "parameters": [
           {
