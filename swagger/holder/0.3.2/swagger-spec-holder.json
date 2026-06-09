@@ -164,7 +164,7 @@
             }
           }
         },
-        "summary": "Get health status of the holder service",
+        "summary": "Health Check for Holder Service",
         "tags": [
           "health"
         ]
@@ -287,7 +287,7 @@
             "bearer": []
           }
         ],
-        "summary": "Retrieve all Credential offers received from Issuers",
+        "summary": "Retrieve All Credential Offers",
         "tags": [
           "credential"
         ]
@@ -377,7 +377,7 @@
             "bearer": []
           }
         ],
-        "summary": "Accept or decline a Credential offer",
+        "summary": "Accept or Decline Credential Offer",
         "tags": [
           "credential"
         ]
@@ -467,7 +467,7 @@
             "bearer": []
           }
         ],
-        "summary": "Store a Credential",
+        "summary": "Store A Credential",
         "tags": [
           "credential"
         ]
@@ -568,7 +568,7 @@
             "bearer": []
           }
         ],
-        "summary": "Retrieve all Credentials stored in the LOB's wallet",
+        "summary": "Retrieve All Stored Credentials",
         "tags": [
           "credential"
         ]
@@ -658,7 +658,7 @@
             "bearer": []
           }
         ],
-        "summary": "Delete a Credential offer",
+        "summary": "Delete A Credential Offer",
         "tags": [
           "credential"
         ]
@@ -748,7 +748,7 @@
             "bearer": []
           }
         ],
-        "summary": "Delete a stored Credential",
+        "summary": "Delete A Stored Credential",
         "tags": [
           "credential"
         ]
@@ -876,7 +876,7 @@
             "bearer": []
           }
         ],
-        "summary": "Retrieve all proof requests",
+        "summary": "Retrieve All Proof Requests",
         "tags": [
           "proof-request"
         ]
@@ -963,7 +963,7 @@
             "bearer": []
           }
         ],
-        "summary": "Retrieve matching Credentials for a proof request",
+        "summary": "Retrieve Matching Credentials for A Proof Request",
         "tags": [
           "proof-request"
         ]
@@ -1053,7 +1053,7 @@
             "bearer": []
           }
         ],
-        "summary": "Send Credential presentation",
+        "summary": "Send Credential Presentation",
         "tags": [
           "proof-request"
         ]
@@ -1143,7 +1143,7 @@
             "bearer": []
           }
         ],
-        "summary": "Delete a proof request",
+        "summary": "Delete A Proof Request",
         "tags": [
           "proof-request"
         ]
@@ -1233,7 +1233,7 @@
             "bearer": []
           }
         ],
-        "summary": "Decline a proof request",
+        "summary": "Decline A Proof Request",
         "tags": [
           "proof-request"
         ]
@@ -1322,7 +1322,7 @@
             "bearer": []
           }
         ],
-        "summary": "Retrieve Out-Of-Band message details",
+        "summary": "Retrieve Out-of-Band Message Details",
         "tags": [
           "out-of-band"
         ]

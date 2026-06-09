@@ -164,7 +164,7 @@
             }
           }
         },
-        "summary": "Get health status of the connection service",
+        "summary": "Health Check for Connection Service",
         "tags": []
       }
     },
@@ -251,7 +251,7 @@
             "bearer": []
           }
         ],
-        "summary": "A DIDExchange based invitation is sent to the client. The invitation is prepared based on AIP 2.0 protocol. ",
+        "summary": "Send DID-Exchange Connection Invitation",
         "tags": [
           "did-exchange"
         ]
@@ -340,7 +340,7 @@
             "bearer": []
           }
         ],
-        "summary": "OOBInvitation is prepared as a QR Code and returned to the client. The invitation is prepared based on AIP 2.0 protocol. ",
+        "summary": "Prepare URL for Connection Invitation",
         "tags": [
           "out-of-band"
         ]
@@ -429,7 +429,7 @@
             "bearer": []
           }
         ],
-        "summary": "OOBInvitation sends an email invitation to the prepared based on AIP 2.0 protocol. ",
+        "summary": "Send Out-of-Band Connection Invitation",
         "tags": [
           "out-of-band"
         ]
@@ -518,7 +518,7 @@
             "bearer": []
           }
         ],
-        "summary": "The oob/details API is called to provide the client the details of the oob invitation received by the client.",
+        "summary": "Retrieve Out-of-Band Connection Invitation Details",
         "tags": [
           "out-of-band"
         ]
@@ -607,7 +607,7 @@
             "bearer": []
           }
         ],
-        "summary": "An invitation is accepted. The invitation is prepared based on AIP 2.0 protocol. ",
+        "summary": "Accept Connection Invitation",
         "tags": [
           "invitations"
         ]
@@ -733,7 +733,7 @@
             "bearer": []
           }
         ],
-        "summary": "Returns pending and draft connections with their latest state, including sent and received invitations, sorted by most recent activity.",
+        "summary": "Retrieve All Pending Connection Invitations",
         "tags": [
           "invitations"
         ]
@@ -820,7 +820,7 @@
             "bearer": []
           }
         ],
-        "summary": "Return a single connection invitation.",
+        "summary": "Retrieve A Contact",
         "tags": [
           "contacts"
         ]
@@ -915,7 +915,7 @@
             "bearer": []
           }
         ],
-        "summary": "Update a contact record.",
+        "summary": "Update A Contact Record",
         "tags": [
           "contacts"
         ]
@@ -1057,7 +1057,7 @@
             "bearer": []
           }
         ],
-        "summary": "Returns all accepted connections with their establishment date and time, sorted alphabetically by Given Name.",
+        "summary": "Retrieve All Contacts",
         "tags": [
           "contacts"
         ]
@@ -1146,7 +1146,7 @@
             "bearer": []
           }
         ],
-        "summary": "Delete API deletes a pending connection or a draft invitation.",
+        "summary": "Delete A Pending Connection Invitation",
         "tags": [
           "invitations"
         ]
@@ -1235,7 +1235,7 @@
             "bearer": []
           }
         ],
-        "summary": "DeleteContact API deletes a contact and the associated connection with the peer.",
+        "summary": "Delete A Contact",
         "tags": [
           "contacts"
         ]

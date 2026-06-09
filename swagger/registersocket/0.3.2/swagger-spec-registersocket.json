@@ -74,7 +74,7 @@
             "bearer": []
           }
         ],
-        "summary": "Get connected socket IDs for a LOB",
+        "summary": "Get SocketIDs Connected To The LOB",
         "tags": []
       }
     },
@@ -241,7 +241,7 @@
             }
           }
         },
-        "summary": "Get health status of the registersocket service",
+        "summary": "Health Check for RegisterSocket Service",
         "tags": [
           "health"
         ]

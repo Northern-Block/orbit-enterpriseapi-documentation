@@ -84,7 +84,7 @@
             "bearer": []
           }
         ],
-        "summary": "Send Out-Of-Band Credential offer",
+        "summary": "Send Out-of-Band Credential Offer",
         "tags": [
           "issue-credential"
         ]
@@ -173,7 +173,7 @@
             "bearer": []
           }
         ],
-        "summary": "Credential offer is prepared as a URL and returned to the LOB",
+        "summary": "Prepare URL for Credential Offer",
         "tags": [
           "issue-credential"
         ]
@@ -262,7 +262,7 @@
             "bearer": []
           }
         ],
-        "summary": "Send Credential offer to a contact",
+        "summary": "Send Credential Offer To Contact",
         "tags": [
           "issue-credential"
         ]
@@ -351,7 +351,7 @@
             "bearer": []
           }
         ],
-        "summary": "Issue a Credential to a recipient",
+        "summary": "Issue A Credential",
         "tags": [
           "issue-credential"
         ]
@@ -441,7 +441,7 @@
             "bearer": []
           }
         ],
-        "summary": "Decline a Credential Offer",
+        "summary": "Decline a Credential",
         "tags": [
           "issue-credential"
         ]
@@ -560,7 +560,7 @@
             "bearer": []
           }
         ],
-        "summary": "Retrieve all pending Credential offers that have been sent",
+        "summary": "Retrieve All Pending Credential Offers",
         "tags": [
           "issue-credential"
         ]
@@ -905,7 +905,7 @@
             }
           }
         },
-        "summary": "Get health status of the issuer service",
+        "summary": "Health Check for Issuer Service",
         "tags": [
           "health"
         ]

@@ -164,7 +164,7 @@
             }
           }
         },
-        "summary": "Get health status of the verifier service",
+        "summary": "Health Check for Verifier Service",
         "tags": [
           "health"
         ]
@@ -254,7 +254,7 @@
             "bearer": []
           }
         ],
-        "summary": "The Define Proof Request API is called to create and store a proof request template",
+        "summary": "Define Proof Request",
         "tags": [
           "proof-define"
         ]
@@ -361,7 +361,7 @@
             "bearer": []
           }
         ],
-        "summary": "The Retrieve All Defined Proofs API is called to retrieve all stored proof requests",
+        "summary": "Retrieve All Defined Proofs",
         "tags": [
           "proof-define"
         ]
@@ -460,7 +460,7 @@
             "bearer": []
           }
         ],
-        "summary": "The Send Out of Band Proof Request API is called to send a proof request as an out-of-band request",
+        "summary": "Send Out-of-Band Proof Request",
         "tags": [
           "proof-define-request"
         ]
@@ -559,7 +559,7 @@
             "bearer": []
           }
         ],
-        "summary": "The Prepare URL for Proof Request API is called to prepare a URL-based proof request",
+        "summary": "Prepare URL for Proof Request",
         "tags": [
           "proof-define-request"
         ]
@@ -649,7 +649,7 @@
             "bearer": []
           }
         ],
-        "summary": "The Send Proof Request to Contact API is called to send a proof request to an established contact",
+        "summary": "Send Proof Request to A Contact",
         "tags": [
           "proof-define-request"
         ]
@@ -862,7 +862,7 @@
             "bearer": []
           }
         ],
-        "summary": "Retrieve status of all proof requests",
+        "summary": "Retrieve Status of All Proof Requests",
         "tags": [
           "proof-request"
         ]
@@ -952,7 +952,7 @@
             "bearer": []
           }
         ],
-        "summary": "The Delete Proof Request API is called to delete a stored proof request",
+        "summary": "Delete Proof Request",
         "tags": [
           "proof-request"
         ]
@@ -1042,7 +1042,7 @@
             "bearer": []
           }
         ],
-        "summary": "The Verify Proof Request API is called to verify a proof request",
+        "summary": "Verify A Credential Presentation",
         "tags": [
           "proof-define-request"
         ]
@@ -1141,7 +1141,7 @@
             "bearer": []
           }
         ],
-        "summary": "The Prepare URL for Proof Request API is called to prepare a URL-based proof request",
+        "summary": "Prepare URL for Proof Request (Without A Proof Definition ID)",
         "tags": [
           "proof-request"
         ]
@@ -1240,7 +1240,7 @@
             "bearer": []
           }
         ],
-        "summary": "The Send Out of Band Proof Request API is called to send a proof request as an out-of-band request",
+        "summary": "Send Out-of-Band Proof Request (Without A Proof Definition ID)",
         "tags": [
           "proof-request"
         ]
@@ -1330,7 +1330,7 @@
             "bearer": []
           }
         ],
-        "summary": "The Send Proof Request to Contact API is called to send a proof request to an established contact",
+        "summary": "Send Proof Request To A Contact (Without A Proof Definition ID)",
         "tags": [
           "proof-request"
         ]
@@ -1419,7 +1419,7 @@
             "bearer": []
           }
         ],
-        "summary": "Send a problem report for a credential proof",
+        "summary": "Send A Problem Report Upon Receipt of A Credential Proof",
         "tags": [
           "problem-report"
         ]
@@ -1604,12 +1604,12 @@
           },
           "proofValidTill": {
             "type": "object",
-            "example": "2026-06-04T09:42:38.804Z",
+            "example": "2026-06-09T17:43:02.162Z",
             "description": "The timestamp or expiration time until which the proof is considered valid."
           },
           "proofValidFrom": {
             "type": "object",
-            "example": "2026-06-04T09:42:38.804Z",
+            "example": "2026-06-09T17:43:02.163Z",
             "description": ""
           },
           "restrictions": {
@@ -1644,12 +1644,12 @@
           },
           "proofValidTill": {
             "type": "object",
-            "example": "2026-06-04T09:42:38.805Z",
+            "example": "2026-06-09T17:43:02.164Z",
             "description": "The timestamp or expiration time until which the proof is considered valid."
           },
           "proofValidFrom": {
             "type": "object",
-            "example": "2026-06-04T09:42:38.805Z",
+            "example": "2026-06-09T17:43:02.164Z",
             "description": ""
           },
           "restrictions": {
