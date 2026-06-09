@@ -1005,7 +1005,6 @@
     },
     "/api/v1/lob/{multi_tenant_id}/tenant/join": {
       "post": {
-        "description": "Creates a tenant subwallet in the Agent Service and links it to the multi-tenant LOB",
         "operationId": "MultiTenancyController_joinTenant_api/v1",
         "parameters": [
           {
@@ -1077,7 +1076,6 @@
     },
     "/api/v1/lob/{multi_tenant_id}/tenant": {
       "get": {
-        "description": "Returns tenants filtered by state. JOIN_TENANT_REQUEST returns pending join requests (tenantRequest.id included). TENANT_DELETION_REQUEST returns sub-tenant deletion requests. All other values filter by LOB lifecycle state.",
         "operationId": "MultiTenancyController_listTenants_api/v1",
         "parameters": [
           {
