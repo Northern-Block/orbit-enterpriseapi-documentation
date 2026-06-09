@@ -1546,7 +1546,6 @@
     },
     "/api/lob/{lob_id}/migrate": {
       "post": {
-        "description": "Initiates incremental version migration by setting LOB status to MIGRATING. Admin only.",
         "operationId": "AdminMigrationController_triggerMigration",
         "parameters": [
           {
