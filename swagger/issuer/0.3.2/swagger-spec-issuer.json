@@ -905,7 +905,7 @@
             }
           }
         },
-        "summary": "Health Check for Issuer Service",
+        "summary": "Health Check",
         "tags": [
           "health"
         ]
@@ -1167,13 +1167,13 @@
             "enum": [
               "generated",
               "scanned",
-              "proposal-received",
               "offer-sent",
               "request-received",
+              "holder-declined",
+              "declined-issuance",
               "credential-issued",
-              "stored-in-wallet",
-              "revoked",
-              "abandoned"
+              "store-in-wallet",
+              "revoked-credential"
             ]
           },
           "credentialId": {
@@ -1359,13 +1359,13 @@
             "enum": [
               "generated",
               "scanned",
-              "proposal-received",
               "offer-sent",
               "request-received",
+              "holder-declined",
+              "declined-issuance",
               "credential-issued",
-              "stored-in-wallet",
-              "revoked",
-              "abandoned"
+              "store-in-wallet",
+              "revoked-credential"
             ]
           },
           "credentialId": {
@@ -1537,13 +1537,13 @@
             "enum": [
               "generated",
               "scanned",
-              "proposal-received",
               "offer-sent",
               "request-received",
+              "holder-declined",
+              "declined-issuance",
               "credential-issued",
-              "stored-in-wallet",
-              "revoked",
-              "abandoned"
+              "store-in-wallet",
+              "revoked-credential"
             ]
           },
           "credentialId": {
@@ -1614,13 +1614,13 @@
             "enum": [
               "generated",
               "scanned",
-              "proposal-received",
               "offer-sent",
               "request-received",
+              "holder-declined",
+              "declined-issuance",
               "credential-issued",
-              "stored-in-wallet",
-              "revoked",
-              "abandoned"
+              "store-in-wallet",
+              "revoked-credential"
             ]
           }
         },
@@ -2010,18 +2010,18 @@
           },
           "credOfferStatus": {
             "type": "string",
-            "example": "revoked",
+            "example": "revoked-credential",
             "description": "Status message indicating the result of sending the credential offer.",
             "enum": [
               "generated",
               "scanned",
-              "proposal-received",
               "offer-sent",
               "request-received",
+              "holder-declined",
+              "declined-issuance",
               "credential-issued",
-              "stored-in-wallet",
-              "revoked",
-              "abandoned"
+              "store-in-wallet",
+              "revoked-credential"
             ]
           }
         },

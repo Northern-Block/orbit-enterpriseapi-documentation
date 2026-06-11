@@ -164,7 +164,7 @@
             }
           }
         },
-        "summary": "Health Check for Holder Service",
+        "summary": "Health Check",
         "tags": [
           "health"
         ]
@@ -209,12 +209,13 @@
             "in": "query",
             "schema": {
               "enum": [
-                "proposal-sent",
                 "offer-received",
-                "request-sent",
+                "holder-declined",
+                "acknowledged-offer",
                 "credential-received",
-                "done",
-                "abandoned"
+                "declined-issuance",
+                "stored-in-wallet",
+                "revoked-credential"
               ],
               "type": "string"
             }
@@ -764,17 +765,25 @@
             "in": "query",
             "schema": {
               "enum": [
+                "generated",
+                "scanned",
                 "proposal-sent",
                 "proposal-received",
                 "request-sent",
                 "request-received",
-                "presentation-sent",
+                "proof-received",
                 "presentation-received",
+                "presentation-sent",
                 "presentation-requested",
+                "success",
                 "done",
+                "holder-declined",
                 "abandoned",
                 "deleted",
-                "verified"
+                "verified",
+                "revoked",
+                "revoked-credential",
+                "verification-failed"
               ],
               "type": "string"
             }

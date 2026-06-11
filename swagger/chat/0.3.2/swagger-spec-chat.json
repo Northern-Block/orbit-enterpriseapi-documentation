@@ -573,7 +573,7 @@
             }
           }
         },
-        "summary": "Health Check for Chat Service",
+        "summary": "Health Check",
         "tags": [
           "health"
         ]

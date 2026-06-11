@@ -1875,7 +1875,7 @@
             }
           }
         },
-        "summary": "Health Check for LOB Service",
+        "summary": "Health Check",
         "tags": [
           "health"
         ]
@@ -3103,7 +3103,7 @@
             "description": "Item shape varies by state: JoinRequestItemDto | DeletionRequestItemDto | SubTenantItemDto",
             "example": [
               {
-                "id": 131,
+                "id": 1,
                 "tenantLob": {
                   "id": "66aa5776-3fcc-41da-8c36-fd9ce9871df7",
                   "displayName": "tenant agent henry",
