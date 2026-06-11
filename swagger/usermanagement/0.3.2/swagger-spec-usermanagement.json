@@ -521,7 +521,7 @@
             }
           }
         },
-        "summary": "Health Check for User Management Service",
+        "summary": "Health Check",
         "tags": [
           "health"
         ]

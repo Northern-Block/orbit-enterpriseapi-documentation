@@ -241,7 +241,7 @@
             }
           }
         },
-        "summary": "Health Check for RegisterSocket Service",
+        "summary": "Health Check",
         "tags": [
           "health"
         ]
