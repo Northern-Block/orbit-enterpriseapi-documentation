@@ -765,25 +765,10 @@
             "in": "query",
             "schema": {
               "enum": [
-                "generated",
-                "scanned",
-                "proposal-sent",
-                "proposal-received",
-                "request-sent",
                 "request-received",
-                "proof-received",
-                "presentation-received",
-                "presentation-sent",
-                "presentation-requested",
-                "success",
-                "done",
+                "proof-shared",
                 "holder-declined",
-                "abandoned",
-                "deleted",
-                "verified",
-                "revoked",
-                "revoked-credential",
-                "verification-failed"
+                "success"
               ],
               "type": "string"
             }

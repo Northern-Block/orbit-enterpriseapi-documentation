@@ -750,25 +750,13 @@
             "in": "query",
             "schema": {
               "enum": [
-                "generated",
-                "scanned",
-                "proposal-sent",
-                "proposal-received",
                 "request-sent",
-                "request-received",
                 "proof-received",
-                "presentation-received",
-                "presentation-sent",
-                "presentation-requested",
-                "success",
-                "done",
                 "holder-declined",
-                "abandoned",
-                "deleted",
-                "verified",
-                "revoked",
-                "revoked-credential",
-                "verification-failed"
+                "success",
+                "scanned",
+                "generated",
+                "revoked-credential"
               ],
               "type": "string"
             }
@@ -1612,12 +1600,12 @@
           },
           "proofValidTill": {
             "type": "object",
-            "example": "2026-06-11T14:02:29.349Z",
+            "example": "2026-06-11T16:40:15.643Z",
             "description": "The timestamp or expiration time until which the proof is considered valid."
           },
           "proofValidFrom": {
             "type": "object",
-            "example": "2026-06-11T14:02:29.350Z",
+            "example": "2026-06-11T16:40:15.643Z",
             "description": ""
           },
           "restrictions": {
@@ -1652,12 +1640,12 @@
           },
           "proofValidTill": {
             "type": "object",
-            "example": "2026-06-11T14:02:29.351Z",
+            "example": "2026-06-11T16:40:15.644Z",
             "description": "The timestamp or expiration time until which the proof is considered valid."
           },
           "proofValidFrom": {
             "type": "object",
-            "example": "2026-06-11T14:02:29.351Z",
+            "example": "2026-06-11T16:40:15.644Z",
             "description": ""
           },
           "restrictions": {
@@ -1991,6 +1979,7 @@
               "proof-received",
               "presentation-received",
               "presentation-sent",
+              "proof-shared",
               "presentation-requested",
               "success",
               "done",
@@ -2123,6 +2112,7 @@
               "proof-received",
               "presentation-received",
               "presentation-sent",
+              "proof-shared",
               "presentation-requested",
               "success",
               "done",
@@ -2246,6 +2236,7 @@
               "proof-received",
               "presentation-received",
               "presentation-sent",
+              "proof-shared",
               "presentation-requested",
               "success",
               "done",
@@ -2365,6 +2356,7 @@
               "proof-received",
               "presentation-received",
               "presentation-sent",
+              "proof-shared",
               "presentation-requested",
               "success",
               "done",
@@ -2680,6 +2672,7 @@
               "proof-received",
               "presentation-received",
               "presentation-sent",
+              "proof-shared",
               "presentation-requested",
               "success",
               "done",
@@ -2862,6 +2855,7 @@
               "proof-received",
               "presentation-received",
               "presentation-sent",
+              "proof-shared",
               "presentation-requested",
               "success",
               "done",
@@ -3016,6 +3010,7 @@
               "proof-received",
               "presentation-received",
               "presentation-sent",
+              "proof-shared",
               "presentation-requested",
               "success",
               "done",
@@ -3167,6 +3162,7 @@
               "proof-received",
               "presentation-received",
               "presentation-sent",
+              "proof-shared",
               "presentation-requested",
               "success",
               "done",
