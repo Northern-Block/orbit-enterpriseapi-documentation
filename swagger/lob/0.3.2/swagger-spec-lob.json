@@ -647,7 +647,6 @@
     },
     "/api/v1/lob/{lob_id}/get-otp": {
       "post": {
-        "description": "Sends a 6-digit one-time code to the registered LOB email. The OTP is valid for 5 minutes and is single-use.",
         "operationId": "LobController_getOtp_api/v1",
         "parameters": [
           {
@@ -709,7 +708,6 @@
     },
     "/api/v1/lob/{lob_id}/verify-otp": {
       "post": {
-        "description": "Verifies the 6-digit OTP, invalidates the existing API key, generates a new one, and returns it in the response.",
         "operationId": "LobController_verifyOtp_api/v1",
         "parameters": [
           {
@@ -1007,7 +1005,6 @@
     },
     "/api/v1/lob/{multi_tenant_id}/tenant/join": {
       "post": {
-        "description": "Creates a tenant subwallet in the Agent Service and links it to the multi-tenant LOB",
         "operationId": "MultiTenancyController_joinTenant_api/v1",
         "parameters": [
           {
@@ -1079,7 +1076,6 @@
     },
     "/api/v1/lob/{multi_tenant_id}/tenant": {
       "get": {
-        "description": "Returns tenants filtered by state. JOIN_TENANT_REQUEST returns pending join requests (tenantRequest.id included). TENANT_DELETION_REQUEST returns sub-tenant deletion requests. All other values filter by LOB lifecycle state.",
         "operationId": "MultiTenancyController_listTenants_api/v1",
         "parameters": [
           {
@@ -1550,7 +1546,6 @@
     },
     "/api/lob/{lob_id}/migrate": {
       "post": {
-        "description": "Initiates incremental version migration by setting LOB status to MIGRATING. Admin only.",
         "operationId": "AdminMigrationController_triggerMigration",
         "parameters": [
           {
@@ -1640,7 +1635,6 @@
     },
     "/api/lob/{lob_id}/migration-status": {
       "get": {
-        "description": "Returns current apiVersion and migrationStatus. Admin only.",
         "operationId": "AdminMigrationController_getMigrationStatus",
         "parameters": [
           {
@@ -1881,7 +1875,7 @@
             }
           }
         },
-        "summary": "Health Check for LOB Service",
+        "summary": "Health Check",
         "tags": [
           "health"
         ]
@@ -3109,7 +3103,7 @@
             "description": "Item shape varies by state: JoinRequestItemDto | DeletionRequestItemDto | SubTenantItemDto",
             "example": [
               {
-                "id": 131,
+                "id": 1,
                 "tenantLob": {
                   "id": "66aa5776-3fcc-41da-8c36-fd9ce9871df7",
                   "displayName": "tenant agent henry",

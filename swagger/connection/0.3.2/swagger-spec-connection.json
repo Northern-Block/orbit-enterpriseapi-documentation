@@ -164,7 +164,7 @@
             }
           }
         },
-        "summary": "Health Check for Connection Service",
+        "summary": "Health Check",
         "tags": []
       }
     },
@@ -251,7 +251,7 @@
             "bearer": []
           }
         ],
-        "summary": "Send DID-Exchange Connection Invitation",
+        "summary": "Send DID-Exchange Invitation",
         "tags": [
           "did-exchange"
         ]
@@ -340,7 +340,7 @@
             "bearer": []
           }
         ],
-        "summary": "Prepare URL for Connection Invitation",
+        "summary": "Prepare URL for Invitation",
         "tags": [
           "out-of-band"
         ]
@@ -429,7 +429,7 @@
             "bearer": []
           }
         ],
-        "summary": "Send Out-of-Band Connection Invitation",
+        "summary": "Send Out-of-Band Invitation",
         "tags": [
           "out-of-band"
         ]
@@ -518,7 +518,7 @@
             "bearer": []
           }
         ],
-        "summary": "Retrieve Out-of-Band Connection Invitation Details",
+        "summary": "Retrieve Out-of-Band Invitation Details",
         "tags": [
           "out-of-band"
         ]
@@ -607,7 +607,7 @@
             "bearer": []
           }
         ],
-        "summary": "Accept Connection Invitation",
+        "summary": "Accept Invitation",
         "tags": [
           "invitations"
         ]
@@ -733,7 +733,7 @@
             "bearer": []
           }
         ],
-        "summary": "Retrieve All Pending Connection Invitations",
+        "summary": "Retrieve All Pending Invitations",
         "tags": [
           "invitations"
         ]
@@ -1146,7 +1146,7 @@
             "bearer": []
           }
         ],
-        "summary": "Delete A Pending Connection Invitation",
+        "summary": "Delete A Pending Invitation",
         "tags": [
           "invitations"
         ]

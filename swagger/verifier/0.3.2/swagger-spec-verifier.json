@@ -164,7 +164,7 @@
             }
           }
         },
-        "summary": "Health Check for Verifier Service",
+        "summary": "Health Check",
         "tags": [
           "health"
         ]
@@ -750,17 +750,13 @@
             "in": "query",
             "schema": {
               "enum": [
-                "proposal-sent",
-                "proposal-received",
                 "request-sent",
-                "request-received",
-                "presentation-sent",
-                "presentation-received",
-                "presentation-requested",
-                "done",
-                "abandoned",
-                "deleted",
-                "verified"
+                "proof-received",
+                "holder-declined",
+                "success",
+                "scanned",
+                "generated",
+                "revoked-credential"
               ],
               "type": "string"
             }
@@ -1604,12 +1600,12 @@
           },
           "proofValidTill": {
             "type": "object",
-            "example": "2026-06-09T17:43:02.162Z",
+            "example": "2026-06-11T16:40:15.643Z",
             "description": "The timestamp or expiration time until which the proof is considered valid."
           },
           "proofValidFrom": {
             "type": "object",
-            "example": "2026-06-09T17:43:02.163Z",
+            "example": "2026-06-11T16:40:15.643Z",
             "description": ""
           },
           "restrictions": {
@@ -1644,12 +1640,12 @@
           },
           "proofValidTill": {
             "type": "object",
-            "example": "2026-06-09T17:43:02.164Z",
+            "example": "2026-06-11T16:40:15.644Z",
             "description": "The timestamp or expiration time until which the proof is considered valid."
           },
           "proofValidFrom": {
             "type": "object",
-            "example": "2026-06-09T17:43:02.164Z",
+            "example": "2026-06-11T16:40:15.644Z",
             "description": ""
           },
           "restrictions": {
@@ -1976,10 +1972,23 @@
             "enum": [
               "generated",
               "scanned",
+              "proposal-sent",
+              "proposal-received",
               "request-sent",
+              "request-received",
               "proof-received",
+              "presentation-received",
+              "presentation-sent",
+              "proof-shared",
+              "presentation-requested",
               "success",
+              "done",
+              "holder-declined",
+              "abandoned",
+              "deleted",
+              "verified",
               "revoked",
+              "revoked-credential",
               "verification-failed"
             ]
           }
@@ -2096,10 +2105,23 @@
             "enum": [
               "generated",
               "scanned",
+              "proposal-sent",
+              "proposal-received",
               "request-sent",
+              "request-received",
               "proof-received",
+              "presentation-received",
+              "presentation-sent",
+              "proof-shared",
+              "presentation-requested",
               "success",
+              "done",
+              "holder-declined",
+              "abandoned",
+              "deleted",
+              "verified",
               "revoked",
+              "revoked-credential",
               "verification-failed"
             ]
           }
@@ -2207,10 +2229,23 @@
             "enum": [
               "generated",
               "scanned",
+              "proposal-sent",
+              "proposal-received",
               "request-sent",
+              "request-received",
               "proof-received",
+              "presentation-received",
+              "presentation-sent",
+              "proof-shared",
+              "presentation-requested",
               "success",
+              "done",
+              "holder-declined",
+              "abandoned",
+              "deleted",
+              "verified",
               "revoked",
+              "revoked-credential",
               "verification-failed"
             ]
           }
@@ -2314,10 +2349,23 @@
             "enum": [
               "generated",
               "scanned",
+              "proposal-sent",
+              "proposal-received",
               "request-sent",
+              "request-received",
               "proof-received",
+              "presentation-received",
+              "presentation-sent",
+              "proof-shared",
+              "presentation-requested",
               "success",
+              "done",
+              "holder-declined",
+              "abandoned",
+              "deleted",
+              "verified",
               "revoked",
+              "revoked-credential",
               "verification-failed"
             ],
             "description": "The current status of the presentation record."
@@ -2617,10 +2665,23 @@
             "enum": [
               "generated",
               "scanned",
+              "proposal-sent",
+              "proposal-received",
               "request-sent",
+              "request-received",
               "proof-received",
+              "presentation-received",
+              "presentation-sent",
+              "proof-shared",
+              "presentation-requested",
               "success",
+              "done",
+              "holder-declined",
+              "abandoned",
+              "deleted",
+              "verified",
               "revoked",
+              "revoked-credential",
               "verification-failed"
             ],
             "description": "The status of the presentation verification process."
@@ -2787,10 +2848,23 @@
             "enum": [
               "generated",
               "scanned",
+              "proposal-sent",
+              "proposal-received",
               "request-sent",
+              "request-received",
               "proof-received",
+              "presentation-received",
+              "presentation-sent",
+              "proof-shared",
+              "presentation-requested",
               "success",
+              "done",
+              "holder-declined",
+              "abandoned",
+              "deleted",
+              "verified",
               "revoked",
+              "revoked-credential",
               "verification-failed"
             ]
           }
@@ -2929,10 +3003,23 @@
             "enum": [
               "generated",
               "scanned",
+              "proposal-sent",
+              "proposal-received",
               "request-sent",
+              "request-received",
               "proof-received",
+              "presentation-received",
+              "presentation-sent",
+              "proof-shared",
+              "presentation-requested",
               "success",
+              "done",
+              "holder-declined",
+              "abandoned",
+              "deleted",
+              "verified",
               "revoked",
+              "revoked-credential",
               "verification-failed"
             ]
           }
@@ -3068,10 +3155,23 @@
             "enum": [
               "generated",
               "scanned",
+              "proposal-sent",
+              "proposal-received",
               "request-sent",
+              "request-received",
               "proof-received",
+              "presentation-received",
+              "presentation-sent",
+              "proof-shared",
+              "presentation-requested",
               "success",
+              "done",
+              "holder-declined",
+              "abandoned",
+              "deleted",
+              "verified",
               "revoked",
+              "revoked-credential",
               "verification-failed"
             ]
           }
