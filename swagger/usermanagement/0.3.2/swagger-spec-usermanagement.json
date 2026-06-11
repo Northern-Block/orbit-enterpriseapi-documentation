@@ -68,7 +68,7 @@
             }
           }
         },
-        "summary": "Login Endpoint for LOB and Members",
+        "summary": "User Login",
         "tags": []
       }
     },
@@ -354,7 +354,7 @@
             "bearer": []
           }
         ],
-        "summary": "Logout Endpoint for LOB and Members",
+        "summary": "User Logout",
         "tags": []
       }
     },
